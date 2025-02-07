@@ -11,10 +11,11 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	var direction: Vector2 = Input.get_vector("Move_Left", "Move_Right", "Move_Up", "Move_Down")
+	var movement := 0
+	if Input.is_action_pressed("Move_Left"):
+		movement -= SPEED
+	if Input.is_action_pressed("Move_Right"):
+		movement += SPEED
 	
-	if direction.x > 0:
-		path_to_follow.progress += SPEED
-	elif direction.x < 0:
-		path_to_follow.progress -= SPEED
+	path_to_follow.progress += movement
 	
