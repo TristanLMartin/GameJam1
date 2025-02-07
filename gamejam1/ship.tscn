@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dphpl0yiotelo"]
+
+[ext_resource type="Script" uid="uid://ba0iaclhkem3a" path="res://ship.gd" id="1_4cq66"]
+[ext_resource type="Texture2D" uid="uid://dfwsjmgiam574" path="res://Assets/UFO/PNG/shipPink_manned.png" id="2_v4325"]
+
+[sub_resource type="Curve2D" id="Curve2D_1bvp3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 69, -491, 0, 0, 0, 0, 363, -477, 0, 0, 0, 0, 481, -411, 0, 0, 0, 0, 568, -335, 0, 0, 0, 0, 621, -165, 0, 0, 0, 0, 621, 20, 0, 0, 0, 0, 590, 192, 0, 0, 0, 0, 525, 277, 0, 0, 0, 0, 429, 365, 0, 0, 0, 0, 257, 439, 0, 0, 0, 0, 28, 497, 0, 0, 0, 0, -118, 502, 0, 0, 0, 0, -257, 474, 0, 0, 0, 0, -386, 401, 0, 0, 0, 0, -456, 274, 0, 0, 0, 0, -500, 152, 0, 0, 0, 0, -498, -84, 0, 0, 0, 0, -468, -234, 0, 0, 0, 0, -350, -365, 0, 0, 0, 0, -213, -431, 0, 0, 0, 0, -43, -499, 0, 0, 0, 0, 69, -491)
+}
+point_count = 22
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_4cq66")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(500, 500)
+curve = SubResource("Curve2D_1bvp3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(95.4978, -489.738)
+rotation = 0.0475831
+progress = 26.5453
+
+[node name="ShipPinkManned" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(3.29551, -4.42352)
+texture = ExtResource("2_v4325")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddhgt2xw7sn1v"]
+
+[ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="Planet" type="Sprite2D" parent="."]
+position = Vector2(500, 500)
+texture = ExtResource("2_0xm2m")
+
+[node name="Ship" parent="." instance=ExtResource("3_h2yge")]
