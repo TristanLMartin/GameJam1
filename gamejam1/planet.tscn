@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dur2ah53h3xw6"]
+[gd_scene load_steps=4 format=3 uid="uid://dur2ah53h3xw6"]
 
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="1_1odxm"]
 [ext_resource type="Script" uid="uid://b8da50ctwqg6f" path="res://planet.gd" id="1_mtr83"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
 radius = 562.43
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mtr83"]
-radius = 586.003
 
 [node name="Planet" type="StaticBody2D"]
 collision_mask = 3
@@ -24,9 +21,49 @@ texture = ExtResource("1_1odxm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lquwl")
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="Quadrant1" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-202, -140)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CircleShape2D_mtr83")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant1"]
+position = Vector2(0, -2)
+polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
+
+[node name="Quadrant2" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-202, -140)
+rotation = 1.5708
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant2"]
+position = Vector2(-58, -346)
+polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
+
+[node name="Quadrant3" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-202, -140)
+rotation = 3.14159
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant3"]
+position = Vector2(-403, -285)
+polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
+
+[node name="Quadrant4" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-202, -140)
+rotation = 4.71239
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant4"]
+position = Vector2(-342, 58)
+polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
+
+[node name="MultiplierLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -33.0
+offset_top = -56.0
+offset_right = 7.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 100

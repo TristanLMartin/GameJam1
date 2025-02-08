@@ -1,15 +1,27 @@
 extends StaticBody2D
 
 var health = 1000
+var multiplier = 1
 signal PlanetDeath
 
 func take_damage(damage : int):
-	health -= damage
+	health -= damage * multiplier
 	var health_bar : ProgressBar = get_node('/root/Main/CanvasLayer/PlanetHealth')
 	health_bar.value = health
 	
 	
 
 func _physics_process(delta: float) -> void:
-	for body in %HurtBox.get_overlapping_bodies():
-		take_damage(1)
+	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
+	
+	var current_multiplier = 0
+	var total_damage = 0
+	for quadrant in quadrants:
+		var bodies = quadrant.get_overlapping_bodies()
+		if bodies:
+			current_multiplier += 1
+			total_damage += bodies.size()
+	multiplier = current_multiplier
+	%MultiplierLabel.text = str(multiplier,  'x')
+	
+	take_damage(total_damage)
