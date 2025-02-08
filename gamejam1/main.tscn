@@ -8,7 +8,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
 radius = 562.43
-[ext_resource type="PackedScene" path="res://upgrade_menu.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")

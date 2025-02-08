@@ -13,8 +13,8 @@ point_count = 87
 script = ExtResource("1_4cq66")
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(481.825, 503.244)
-scale = Vector2(1.07217, 1.12249)
+position = Vector2(484.784, 502.46)
+scale = Vector2(1.1391, 1.18707)
 curve = SubResource("Curve2D_1bvp3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -25,5 +25,4 @@ progress = 26.5453
 
 [node name="ShipPinkManned" type="Sprite2D" parent="Path2D/PathFollow2D"]
 position = Vector2(3.29551, -4.42352)
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_v4325")
