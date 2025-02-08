@@ -43,3 +43,5 @@ autoplay = true
 
 [node name="CowTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[connection signal="PlanetDeath" from="Planet" to="." method="_on_planet_planet_death"]

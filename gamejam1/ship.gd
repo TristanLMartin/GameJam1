@@ -6,10 +6,12 @@ extends Node2D
 @onready var path_to_follow : PathFollow2D = %PathFollow2D
 @onready var bullet_timer : Timer = $Bullet_CD
 @onready var dash_timer : Timer = $Dash_CD
+@onready var teleport_timer : Timer = $Teleport_CD
 
 var bullet_scene
 var dashing : bool = false
 var dash_length_timer : Timer
+
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
@@ -22,12 +24,14 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 	
-	
 	if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
 		print("dash")
 		dash()
-		
 	
+	if Input.is_action_just_pressed("Teleport") and teleport_timer.is_stopped():
+		print("teleport")
+		teleport()
+
 
 func _physics_process(delta: float) -> void:
 	var movement := 0
@@ -43,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		movement += velocity
 	
 	path_to_follow.progress += movement
+
 
 func shoot() -> void:
 	bullet_timer.start()
@@ -66,6 +71,14 @@ func dash() -> void:
 
 func _on_timer_timeout_dash_length() -> void:
 	dashing = false
+	
+
+func teleport() -> void:
+	teleport_timer.start()
+	if path_to_follow.progress_ratio <= .5:
+		path_to_follow.progress_ratio += .5
+	else:
+		path_to_follow.progress_ratio -= .5
 
 
 #When this upgrade is purchased, we need to call $CowTimer.start()
