@@ -6,3 +6,4 @@ func _physics_process(delta: float) -> void:
 	var direction : Vector2 = global_position.direction_to(planet.global_position)
 	velocity = direction * 500
 	move_and_slide()
+	
