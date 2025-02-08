@@ -49,7 +49,6 @@ func shoot() -> void:
 	bullet_instance.global_position = %PathFollow2D.global_position * 1.2
 	add_child(bullet_instance)
 
-<<<<<<< HEAD
 func dash() -> void:
 	dashing = true
 	dash_timer.start()
@@ -64,7 +63,6 @@ func dash() -> void:
 
 func _on_timer_timeout_dash_length() -> void:
 	dashing = false
-=======
 
 @export var has_cows_unlocked = true #If you have the upgrade or not
 @export var cow_count = 10 #How many cows you have in your "inventory"
@@ -84,5 +82,4 @@ func place_cows_on_planet() -> void:
 	
 
 #func place_mine() -> void:
->>>>>>> 7100cf8fc1d17f08f9aac3ffc0ec0350c639c142
 	
