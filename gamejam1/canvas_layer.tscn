@@ -1,66 +1,151 @@
-[gd_scene load_steps=2 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=8 format=3 uid="uid://crgah250d2dxc"]
 
-[ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="1_v2lfg"]
+[ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="PackedScene" path="res://upgrade_menu.tscn" id="1_v2lfg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
+shader = ExtResource("1_tg4cr")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_0qrqu"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.82]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mx0kw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w4oxd"]
+_data = {
+&"RESET": SubResource("Animation_mx0kw"),
+&"blur": SubResource("Animation_0qrqu")
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Menus" type="Control" parent="."]
 z_index = 1
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MainMenu" type="Control" parent="Menus"]
+[node name="PauseMenu" type="Control" parent="Menus"]
+process_mode = 3
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -150.0
-offset_right = 150.0
-offset_bottom = 150.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37rai")
+
+[node name="ColorRect" type="ColorRect" parent="Menus/PauseMenu"]
+material = SubResource("ShaderMaterial_37rai")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/MainMenu"]
+[node name="PanelContainer" type="PanelContainer" parent="Menus/PauseMenu"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -99.5
+offset_left = -100.5
 offset_top = -119.5
-offset_right = 99.5
+offset_right = 100.5
 offset_bottom = 119.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="Menus/MainMenu/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/PauseMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
-text = "Play"
+text = "Resume
+"
 
-[node name="Options" type="Button" parent="Menus/MainMenu/VBoxContainer"]
+[node name="Restart" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
-text = "Options"
+text = "Restart"
 
-[node name="Quit" type="Button" parent="Menus/MainMenu/VBoxContainer"]
+[node name="Quit" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menus/PauseMenu"]
+libraries = {
+&"": SubResource("AnimationLibrary_w4oxd")
+}
+
 [node name="UpgradeMenu" parent="Menus" instance=ExtResource("1_v2lfg")]
 visible = false
 layout_mode = 1
+
+[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
+[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Quit" to="Menus/PauseMenu" method="_on_quit_pressed"]
