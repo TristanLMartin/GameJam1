@@ -2,14 +2,17 @@ extends Control
 
 func _ready():
 	$AnimationPlayer.play("RESET")
+	hide()
 
 func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
+	hide()
 
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
+	show()
 
 func testEsc():
 	if Input.is_action_just_pressed("Escape") and get_tree().paused == false:
