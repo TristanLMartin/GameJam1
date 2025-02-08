@@ -12,6 +12,7 @@ func take_damage(damage : int):
 	
 
 func _physics_process(delta: float) -> void:
+
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
 	
 	var current_multiplier = 0
@@ -25,3 +26,14 @@ func _physics_process(delta: float) -> void:
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
 	take_damage(total_damage)
+
+
+var cows = 0
+
+func _ready():
+	var ship = get_node("/root/Main/Ship")
+	ship.cow_signal.connect(_on_place_cows)
+	
+func _on_place_cows(amount):
+	cows += amount
+	print(cows)
