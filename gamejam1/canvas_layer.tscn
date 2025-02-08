@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=9 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="1_v2lfg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
@@ -68,6 +68,9 @@ _data = {
 &"RESET": SubResource("Animation_mx0kw"),
 &"blur": SubResource("Animation_0qrqu")
 }
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_37rai"]
+size = Vector2(30, 30)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -145,6 +148,282 @@ libraries = {
 [node name="UpgradeMenu" parent="Menus" instance=ExtResource("1_v2lfg")]
 visible = false
 layout_mode = 1
+
+[node name="UpgradeMenuNew" type="Control" parent="Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Menus/UpgradeMenuNew"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -391.0
+offset_top = -211.0
+offset_right = 391.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Upgrade Menu"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginSpaceStation" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer"]
+layout_mode = 2
+text = "Space Station"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="MarginDeployables" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2"]
+layout_mode = 2
+text = "Deployables"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="MarginSystems" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3"]
+layout_mode = 2
+text = "Systems"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Increase Movement Speed"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/HBoxContainer/MarginSystems/VBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
 
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
