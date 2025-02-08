@@ -52,15 +52,8 @@ func shoot() -> void:
 	add_child(bullet_instance)
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-#When has_cows_unlocked upgrade becomes true, we need to $CowTimer.start()
-@export var has_cows_unlocked = false #If you have the upgrade or not
-@export var cow_count = 0 #How many cows you have in your "inventory"
-#When cows_placed++ and cow_count isn't a denomination, we need to resolve...
 =======
-<<<<<<< HEAD
-=======
->>>>>>> 1c00f75f7a5843362d32bc64c783bd71bb8652ea
+
 func dash() -> void:
 	dashing = true
 	dash_timer.start()
@@ -75,11 +68,12 @@ func dash() -> void:
 
 func _on_timer_timeout_dash_length() -> void:
 	dashing = false
-=======
 
-@export var has_cows_unlocked = true #If you have the upgrade or not
-@export var cow_count = 10 #How many cows you have in your "inventory"
->>>>>>> d8b6ee211adfe89fc20da7df254b0816c0045a1d
+
+#When this upgrade is purchased, we need to call $CowTimer.start()
+@export var has_cows_unlocked = false #If you have the upgrade or not
+@export var cow_count = 0 #How many cows you have in your "inventory"
+#We need to resolve when cow_count isn't a denomination of cows_placed (when the upgrade is bought)
 @export var cows_placed = 1 #How many cows you place per press
 @export var cow_generation_time = 10.0
 signal cow_signal(amount)
@@ -100,5 +94,4 @@ func place_cows_on_planet() -> void:
 	
 
 #func place_mine() -> void:
->>>>>>> 7100cf8fc1d17f08f9aac3ffc0ec0350c639c142
 	
