@@ -52,12 +52,15 @@ func shoot() -> void:
 	add_child(bullet_instance)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #When has_cows_unlocked upgrade becomes true, we need to $CowTimer.start()
 @export var has_cows_unlocked = false #If you have the upgrade or not
 @export var cow_count = 0 #How many cows you have in your "inventory"
 #When cows_placed++ and cow_count isn't a denomination, we need to resolve...
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> 1c00f75f7a5843362d32bc64c783bd71bb8652ea
 func dash() -> void:
 	dashing = true
 	dash_timer.start()
