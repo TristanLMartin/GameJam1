@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var SPEED : int = 10
 @export var SPEED : int = 8
 @export var Dash_Multiplier : float = 3.0
 @export var dash_length : float = .2
@@ -39,10 +38,8 @@ func _physics_process(delta: float) -> void:
 		velocity = SPEED
 		
 	if Input.is_action_pressed("Move_Left"):
-		movement -= SPEED
 		movement -= velocity
 	if Input.is_action_pressed("Move_Right"):
-		movement += SPEED
 		movement += velocity
 	
 	path_to_follow.progress += movement
