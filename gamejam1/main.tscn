@@ -9,14 +9,20 @@
 script = ExtResource("1_ig7tw")
 
 [node name="Planet" type="Sprite2D" parent="."]
-position = Vector2(721, 683)
+position = Vector2(500, 500)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_0xm2m")
 
+[node name="Camera2D" type="Camera2D" parent="Planet"]
+position = Vector2(-625, -625)
+scale = Vector2(1.25, 1.25)
+offset = Vector2(500, 500)
+zoom = Vector2(0.5, 0.5)
+
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
-position = Vector2(221, 183)
 
 [node name="Menus" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
