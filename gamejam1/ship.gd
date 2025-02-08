@@ -6,6 +6,8 @@ extends Node2D
 @onready var path_to_follow : PathFollow2D = %PathFollow2D
 @onready var bullet_timer : Timer = $Bullet_CD
 @onready var dash_timer : Timer = $Dash_CD
+@onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
+
 
 var bullet_scene
 var dashing : bool = false
@@ -13,12 +15,12 @@ var dash_length_timer : Timer
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
-	#$CowTimer.timeout.connect(_on_CowTimer_timeout)
+	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
 		shoot()
-	#$CowTimer.wait_time = cow_generation_time
+	%CowTimer.wait_time = cow_generation_time
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 	
@@ -51,6 +53,13 @@ func shoot() -> void:
 	bullet_instance.global_position = %PathFollow2D.global_position * 1.2
 	add_child(bullet_instance)
 
+func _on_upgrade_requested(upgrade_id):
+	match upgrade_id:
+		"Upgrade4":
+			print("You have cows!")
+			has_cows_unlocked = true
+			%CowTimer.start()
+			%CowTimer.timeout.connect(_on_CowTimer_timeout)
 
 func dash() -> void:
 	dashing = true
@@ -68,9 +77,8 @@ func _on_timer_timeout_dash_length() -> void:
 	dashing = false
 
 
-#When this upgrade is purchased, we need to call $CowTimer.start()
-@export var has_cows_unlocked = true #If you have the upgrade or not
-@export var cow_count = 10 #How many cows you have in your "inventory"
+@export var has_cows_unlocked = false #If you have the upgrade or not
+@export var cow_count = 1 #How many cows you have in your "inventory"
 #We need to resolve when cow_count isn't a denomination of cows_placed (when the upgrade is bought)
 @export var cows_placed = 1 #How many cows you place per press
 @export var cow_generation_time = 10.0
@@ -83,7 +91,9 @@ func place_cows_on_planet() -> void:
 	if has_cows_unlocked == true and cow_count >= cows_placed: #Checks if you have the cow upgrade and have cows off cooldown
 		cow_count -= cows_placed #Takes cows from "inventory"
 		cow_signal.emit(cows_placed) #Sends a signal with amount of cows to place
+		print("cow placed")
 	
+
 
 #func satellite_left() -> void:
 	
