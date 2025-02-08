@@ -7,9 +7,10 @@
 radius = 562.43
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mtr83"]
-radius = 578.042
+radius = 586.003
 
 [node name="Planet" type="StaticBody2D"]
+collision_mask = 3
 script = ExtResource("1_mtr83")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -25,7 +26,7 @@ shape = SubResource("CircleShape2D_lquwl")
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_mask = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_mtr83")
