@@ -3,9 +3,16 @@ extends Node2D
 
 var wave_number := 1
 const alien_scene : PackedScene = preload("res://alien.tscn")
+signal alien_death
+
+func _ready() -> void:
+	alien_death.connect(_on_alien_death)
 
 func _on_spawn_speed_timeout() -> void:
 	spawn_monster()
+	
+func _on_alien_death():
+	print("alien died")
 
 func spawn_monster() -> void:
 	if self.get_children().size() >= 5:
