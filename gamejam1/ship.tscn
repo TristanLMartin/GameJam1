@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dphpl0yiotelo"]
 
 [ext_resource type="Script" uid="uid://ba0iaclhkem3a" path="res://ship.gd" id="1_4cq66"]
-[ext_resource type="Texture2D" uid="uid://dfwsjmgiam574" path="res://Assets/UFO/PNG/shipPink_manned.png" id="2_v4325"]
+[ext_resource type="Texture2D" uid="uid://buyy6e6o1gtgh" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Station/spaceStation_021.png" id="2_4cq66"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bvp3"]
 _data = {
@@ -25,4 +25,4 @@ progress = 26.5453
 [node name="ShipPinkManned" type="Sprite2D" parent="Path2D/PathFollow2D"]
 position = Vector2(3.29551, -4.42352)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_v4325")
+texture = ExtResource("2_4cq66")
