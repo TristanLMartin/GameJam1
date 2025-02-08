@@ -40,3 +40,6 @@ value = 1000.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_7mycd")
 autoplay = true
+
+[node name="CowTimer" type="Timer" parent="."]
+wait_time = 10.0
