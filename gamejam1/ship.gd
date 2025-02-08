@@ -7,7 +7,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("Shoot"):
+		shoot()
 	
 
 func _physics_process(delta: float) -> void:
@@ -18,4 +19,10 @@ func _physics_process(delta: float) -> void:
 		movement += SPEED
 	
 	path_to_follow.progress += movement
-	
+
+func shoot() -> void:
+	var bullet_scene = load("res://bullet.tscn")
+	var bullet_instance = bullet_scene.instantiate()
+	bullet_instance.global_rotation = self.global_rotation
+	print(self.global_rotation)
+	add_child(bullet_instance)

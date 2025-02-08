@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dphpl0yiotelo"]
 
-[ext_resource type="Script" uid="uid://ba0iaclhkem3a" path="res://ship.gd" id="1_4cq66"]
+[ext_resource type="Script" path="res://ship.gd" id="1_4cq66"]
 [ext_resource type="Texture2D" uid="uid://buyy6e6o1gtgh" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Station/spaceStation_021.png" id="2_4cq66"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bvp3"]
