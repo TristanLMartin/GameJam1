@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv5rvmgdc0guk"]
 
 [ext_resource type="Texture2D" uid="uid://dev5kvp87db7v" path="res://Assets/SpaceShooterRedux/PNG/Lasers/laserBlue01.png" id="1_7pujl"]
-[ext_resource type="Script" path="res://bullet.gd" id="1_47oo6"]
+[ext_resource type="Script" uid="uid://f8weav5cc1g3" path="res://bullet.gd" id="1_47oo6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xiws"]
 height = 64.0
@@ -17,4 +17,4 @@ texture = ExtResource("1_7pujl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1xiws")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
