@@ -19,9 +19,10 @@ script = ExtResource("1_ig7tw")
 [node name="Planet" parent="." instance=ExtResource("2_lquwl")]
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
-SPEED = 8
-Dash_Multiplier = 3.0
-dash_length = 0.2
+has_cows_unlocked = null
+cow_count = null
+cows_placed = null
+cow_generation_time = null
 
 [node name="WaveSpawner" parent="." instance=ExtResource("5_lquwl")]
 
@@ -45,7 +46,4 @@ stream = ExtResource("6_7mycd")
 autoplay = true
 
 [node name="CowTimer" type="Timer" parent="."]
-unique_name_in_owner = true
 wait_time = 10.0
-
-[connection signal="PlanetDeath" from="Planet" to="." method="_on_planet_planet_death"]
