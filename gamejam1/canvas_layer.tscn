@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="1_v2lfg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
@@ -150,6 +150,7 @@ visible = false
 layout_mode = 1
 
 [node name="UpgradeMenuNew" type="Control" parent="Menus"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
