@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddhgt2xw7sn1v"]
+[gd_scene load_steps=8 format=3 uid="uid://ddhgt2xw7sn1v"]
 
-[ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dur2ah53h3xw6" path="res://planet.tscn" id="2_lquwl"]
+[ext_resource type="Script" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://drk1q3buro0m7" path="res://planet.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://e3eachgvj0rt" path="res://canvas_layer.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://crgah250d2dxc" path="res://canvas_layer.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" path="res://bullet.tscn" id="6_xqkcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
@@ -36,6 +35,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_lquwl")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7mycd")
 max_value = 1000.0
 value = 1000.0
-
-[node name="Bullet" parent="." instance=ExtResource("6_xqkcl")]
-position = Vector2(91, -550)

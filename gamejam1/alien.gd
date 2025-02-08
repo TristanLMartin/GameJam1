@@ -7,3 +7,6 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * 500
 	move_and_slide()
 	
+
+func on_hit() -> void:
+	queue_free()

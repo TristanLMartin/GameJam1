@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var SPEED : int = 300
+@export var SPEED : int = 1000
 var RANGE : int = 1200
 var travelled_distance : int = 0
 
@@ -11,9 +11,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var direction : Vector2 = Vector2.RIGHT.rotated(rotation)
+	var direction : Vector2 = Vector2.UP.rotated(rotation)
 	position += direction * SPEED * delta
 	travelled_distance += SPEED * delta
 	
 	if travelled_distance > RANGE:
 		queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print(area.name)
+	area.on_hit()
+	queue_free()
