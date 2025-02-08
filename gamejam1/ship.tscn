@@ -11,6 +11,9 @@ point_count = 87
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_4cq66")
+SPEED = null
+Dash_Multiplier = null
+dash_length = null
 
 [node name="Path2D" type="Path2D" parent="."]
 scale = Vector2(1.2, 1.2)
@@ -31,3 +34,6 @@ texture = ExtResource("2_4cq66")
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="Dash_CD" type="Timer" parent="."]
+one_shot = true
