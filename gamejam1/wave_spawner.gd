@@ -8,10 +8,10 @@ func _on_spawn_speed_timeout() -> void:
 	spawn_monster()
 
 func spawn_monster() -> void:
-	if self.get_children().size() >= 10:
+	if self.get_children().size() >= 5:
 		return
 	
-	%spawn_speed.wait_time = randf_range(1, 5)
+	%spawn_speed.wait_time = randf_range(1, 3)
 	var rand = RandomNumberGenerator.new()
 	%PathFollow2D.progress_ratio = rand.randf()
 	
@@ -19,3 +19,9 @@ func spawn_monster() -> void:
 	alien.global_position = %PathFollow2D.global_position
 	add_child(alien)
 	
+	var aliens_spawned := 0
+	
+	aliens_spawned += 1
+	
+	#if aliens_spawned >= 5d:
+		#print("Wave ", wave_number, " Completed!")
