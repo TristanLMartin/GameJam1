@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://crgah250d2dxc" path="res://canvas_layer.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cv5rvmgdc0guk" path="res://bullet.tscn" id="6_xqkcl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
