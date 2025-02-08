@@ -25,4 +25,5 @@ progress = 26.5453
 
 [node name="ShipPinkManned" type="Sprite2D" parent="Path2D/PathFollow2D"]
 position = Vector2(3.29551, -4.42352)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_v4325")
