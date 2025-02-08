@@ -1,23 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddhgt2xw7sn1v"]
+[gd_scene load_steps=7 format=3 uid="uid://ddhgt2xw7sn1v"]
 
 [ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" path="res://upgrade_menu.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 562.43
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
 
-[node name="Planet" type="Sprite2D" parent="."]
+[node name="Planet" type="StaticBody2D" parent="."]
 position = Vector2(500, 500)
+
+[node name="Camera2D" type="Camera2D" parent="Planet"]
+position = Vector2(3.05176e-05, 3.05176e-05)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Sprite" type="Sprite2D" parent="Planet"]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_0xm2m")
 
-[node name="Camera2D" type="Camera2D" parent="Planet"]
-position = Vector2(-625, -625)
-scale = Vector2(1.25, 1.25)
-offset = Vector2(500, 500)
-zoom = Vector2(0.5, 0.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet"]
+shape = SubResource("CircleShape2D_lquwl")
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
 
@@ -56,3 +63,5 @@ text = "Quit"
 [node name="UpgradeMenu" parent="Menus" instance=ExtResource("4_1bvp3")]
 visible = false
 layout_mode = 1
+
+[node name="WaveSpawner" parent="." instance=ExtResource("5_lquwl")]
