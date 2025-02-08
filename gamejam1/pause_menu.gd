@@ -15,9 +15,14 @@ func pause():
 	show()
 
 func testEsc():
+	if get_node('/root/Main').game_state != get_node('/root/Main').game_states.PLAYING and get_node('/root/Main').game_state != get_node('/root/Main').game_states.PAUSE_MENU:
+		return
+
 	if Input.is_action_just_pressed("Pause") and get_tree().paused == false:
+		get_node('/root/Main').game_state = get_node('/root/Main').game_states.PAUSE_MENU
 		pause()
 	elif Input.is_action_just_pressed("Pause") and get_tree().paused == true:
+		get_node('/root/Main').game_state = get_node('/root/Main').game_states.PLAYING
 		resume()
  
 

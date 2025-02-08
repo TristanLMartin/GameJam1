@@ -15,9 +15,13 @@ func pause():
 	show()
 
 func testTab():
+	if get_node('/root/Main').game_state != get_node('/root/Main').game_states.PLAYING and get_node('/root/Main').game_state != get_node('/root/Main').game_states.UPGRADING:
+		return
 	if Input.is_action_just_pressed("Upgrade_Menu") and  get_tree().paused == false:
+		get_node('/root/Main').game_state = get_node('/root/Main').game_states.UPGRADING
 		pause()
 	elif Input.is_action_just_pressed("Upgrade_Menu") and get_tree().paused == true:
+		get_node('/root/Main').game_state = get_node('/root/Main').game_states.PLAYING
 		resume()
 
 func _process(delta):

@@ -20,3 +20,10 @@ unique_name_in_owner = true
 position = Vector2(68.97, -389.281)
 rotation = 0.0875186
 progress = 26.5453
+
+[node name="spawn_speed" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.065
+autostart = true
+
+[connection signal="timeout" from="spawn_speed" to="." method="_on_spawn_speed_timeout"]
