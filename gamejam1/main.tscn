@@ -8,8 +8,26 @@
 script = ExtResource("1_ig7tw")
 
 [node name="Planet" type="Sprite2D" parent="."]
-position = Vector2(500, 500)
+position = Vector2(721, 683)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_0xm2m")
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(221, 183)
+
+[node name="Menus" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="UpgradeMenu" type="Control" parent="Menus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
