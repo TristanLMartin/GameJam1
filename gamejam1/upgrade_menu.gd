@@ -26,3 +26,7 @@ func testTab():
 
 func _process(delta):
 	testTab()
+	
+func _on_button_pressed() -> void:
+	var button = %Upgrade1 as Button
+	button.disabled = true
