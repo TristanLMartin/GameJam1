@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddhgt2xw7sn1v"]
+[gd_scene load_steps=5 format=3 uid="uid://ddhgt2xw7sn1v"]
 
 [ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -24,10 +25,5 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="UpgradeMenu" type="Control" parent="Menus"]
+[node name="UpgradeMenu" parent="Menus" instance=ExtResource("4_1bvp3")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
