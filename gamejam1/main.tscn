@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://e3eachgvj0rt" path="res://canvas_layer.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
@@ -13,75 +13,10 @@ radius = 562.43
 script = ExtResource("1_ig7tw")
 
 [node name="Planet" type="StaticBody2D" parent="."]
-position = Vector2(500, 500)
 
 [node name="Camera2D" type="Camera2D" parent="Planet"]
 position = Vector2(3.05176e-05, 3.05176e-05)
 zoom = Vector2(0.5, 0.5)
-
-[node name="Menus" type="Control" parent="Planet/Camera2D"]
-z_index = 1
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -3.05176e-05
-offset_top = -3.05176e-05
-offset_right = -3.05176e-05
-offset_bottom = -3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-
-[node name="MainMenu" type="Control" parent="Planet/Camera2D/Menus"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -150.0
-offset_right = 150.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Planet/Camera2D/Menus/MainMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -99.5
-offset_top = -119.5
-offset_right = 99.5
-offset_bottom = 119.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Play" type="Button" parent="Planet/Camera2D/Menus/MainMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Play"
-
-[node name="Options" type="Button" parent="Planet/Camera2D/Menus/MainMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Options"
-
-[node name="Quit" type="Button" parent="Planet/Camera2D/Menus/MainMenu/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Quit"
-
-[node name="UpgradeMenu" parent="Planet/Camera2D/Menus" instance=ExtResource("4_1bvp3")]
-visible = false
-layout_mode = 1
 
 [node name="Sprite" type="Sprite2D" parent="Planet"]
 scale = Vector2(0.8, 0.8)
@@ -93,3 +28,5 @@ shape = SubResource("CircleShape2D_lquwl")
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="WaveSpawner" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_7mycd")]
