@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=12 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
-[ext_resource type="PackedScene" uid="uid://ch2p1xbusnnuo" path="res://upgrade_menu.tscn" id="1_v2lfg"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -71,6 +71,67 @@ _data = {
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_37rai"]
 size = Vector2(30, 30)
+
+[sub_resource type="Animation" id="Animation_w4oxd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fsbdh"]
+resource_name = "blur2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6wdb"]
+_data = {
+&"RESET": SubResource("Animation_w4oxd"),
+&"blur2": SubResource("Animation_fsbdh")
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -145,12 +206,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_w4oxd")
 }
 
-[node name="UpgradeMenu" parent="Menus" instance=ExtResource("1_v2lfg")]
-visible = false
+[node name="UpgradeMenu" type="Control" parent="Menus"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_37rai")
 
-[node name="UpgradeMenuNew" type="Control" parent="Menus"]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="Menus/UpgradeMenu"]
+material = SubResource("ShaderMaterial_37rai")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -158,7 +226,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Menus/UpgradeMenuNew"]
+[node name="PanelContainer" type="PanelContainer" parent="Menus/UpgradeMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,21 +240,21 @@ offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 50
 
-[node name="VBoxContainerALL" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer"]
+[node name="VBoxContainerALL" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="UpgradeMenuText" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL"]
+[node name="UpgradeMenuText" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL"]
 layout_mode = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradeMenuText"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradeMenuText"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -194,33 +262,33 @@ theme_override_font_sizes/font_size = 25
 text = "Upgrade Menu"
 horizontal_alignment = 1
 
-[node name="UpgradesFirstSection" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL"]
+[node name="UpgradesFirstSection" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL"]
 layout_mode = 2
 
-[node name="MarginSpaceStation" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
+[node name="MarginSpaceStation" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 text = "Space Station"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -230,20 +298,20 @@ text = "+ Movement Speed "
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -253,20 +321,20 @@ text = "+ Weapon Damage"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -276,35 +344,35 @@ text = "Upgrade Weapon"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="MarginDeployables" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
+[node name="MarginDeployables" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 text = "Deployables"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -314,20 +382,20 @@ text = "Guardian Cows"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -337,20 +405,20 @@ text = "Satellite Defenders"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -360,35 +428,35 @@ text = "Mining Facility"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="MarginSystems" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
+[node name="MarginSystems" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 text = "Systems"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -398,20 +466,20 @@ text = "+ Planet Health"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -421,20 +489,20 @@ text = "Planetary Recovery"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -444,17 +512,17 @@ text = "Multiplier Resistance"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="DeployableUpgradesText" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL"]
+[node name="DeployableUpgradesText" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/DeployableUpgradesText"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/DeployableUpgradesText"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -462,33 +530,33 @@ theme_override_font_sizes/font_size = 25
 text = "Deployable Upgrades"
 horizontal_alignment = 1
 
-[node name="UpgradesSecondSection" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL"]
+[node name="UpgradesSecondSection" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL"]
 layout_mode = 2
 
-[node name="MarginSpaceStation" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
+[node name="MarginSpaceStation" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 text = "Guardian Cows"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -498,20 +566,20 @@ text = "MORE COWS!!!"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -521,20 +589,20 @@ text = "Cow Regeneration"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -544,35 +612,35 @@ text = "Cooldown Reduction"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="MarginDeployables" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
+[node name="MarginDeployables" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 text = "Satellite Defenders"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -582,20 +650,20 @@ text = "+ Lifespan"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -605,20 +673,20 @@ text = "+ Damage"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -628,35 +696,35 @@ text = "Cooldown Reduction"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
-[node name="MarginSystems" type="MarginContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
+[node name="MarginSystems" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 text = "Mining Facility"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
 
-[node name="Label" type="Label" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -666,10 +734,15 @@ text = "+ Income"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenuNew/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menus/UpgradeMenu"]
+libraries = {
+&"": SubResource("AnimationLibrary_n6wdb")
+}
 
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
