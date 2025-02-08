@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://drk1q3buro0m7"]
+[gd_scene load_steps=5 format=3 uid="uid://dur2ah53h3xw6"]
 
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="1_1odxm"]
-[ext_resource type="Script" path="res://planet.gd" id="1_mtr83"]
+[ext_resource type="Script" uid="uid://b8da50ctwqg6f" path="res://planet.gd" id="1_mtr83"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
 radius = 562.43
