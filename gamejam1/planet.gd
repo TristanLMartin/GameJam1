@@ -8,6 +8,7 @@ var multiplier_resistance = 0
 @export var multiplier_increment = 0.8
 signal PlanetDeath
 signal PlanetCollision
+var cow_quadrants = [0, 0, 0, 0]
 
 func take_damage(damage : int, delta):
 	health -= damage * multiplier * delta
@@ -24,7 +25,6 @@ func _physics_process(delta: float) -> void:
 
 
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
-	
 	var is_attacked = [false, false, false, false]
 	
 	multiplier = 0
@@ -68,7 +68,8 @@ func _ready():
 	%PlanetHealth.max_value = health
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 	
-func _on_place_cows(amount):
+func _on_place_cows(amount, quadrant):
+	
 	cows += amount
 	
 func _on_place_research(amount):

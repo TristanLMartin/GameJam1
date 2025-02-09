@@ -158,9 +158,10 @@ func _on_CowTimer_timeout() -> void:
 	cow_count += 1
 
 func place_cows_on_planet() -> void:
+	var quadrant = int(floor(%PathFollow2D.progress_ratio / 0.25) + 1)
 	if has_cows_unlocked == true and cow_count > 0:
 		cow_count -= 1 #Takes cows from "inventory"
-		cow_signal.emit(cows_placed) #Sends a signal with amount of cows to place
+		cow_signal.emit(cows_placed, quadrant) #Sends a signal with amount of cows to place
 	
 func _on_SatelliteTimer_timeout() -> void:
 	satellite.visible = false

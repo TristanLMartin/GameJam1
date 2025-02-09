@@ -1,4 +1,4 @@
 extends Area2D
 
-const quadrant = 1
-@onready var light = %Quadrant2Light
+const quadrant = 0
+@onready var light = %QuadrantLight1
