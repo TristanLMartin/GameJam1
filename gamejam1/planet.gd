@@ -18,16 +18,18 @@ func _physics_process(delta: float) -> void:
 
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
 	
-	var current_multiplier = 0
+	multiplier = 0
 	var total_damage = 0
 	for quadrant in quadrants:
+		var current_multiplier = 0
 		var bodies = quadrant.get_overlapping_bodies()
 		for body in bodies:
 			PlanetCollision.emit(body)
-		if bodies:
-			current_multiplier += 1
-			total_damage += bodies.size()
-	multiplier = current_multiplier
+			if body.attacking:
+				print("attacking")
+				current_multiplier = 1
+				total_damage += bodies.size()
+		multiplier += current_multiplier
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
 	take_damage(total_damage)
