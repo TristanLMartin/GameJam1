@@ -30,21 +30,18 @@ progress = 26.5453
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
 position = Vector2(-34.6802, 393.82)
 rotation = -0.0875186
-scale = Vector2(1, 1)
 collision_layer = 6
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
 position = Vector2(68.97, -389.281)
 rotation = 0.0875186
-scale = Vector2(1, 1)
 texture = ExtResource("2_blaqe")
 
 [node name="SatelliteCollision" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
 unique_name_in_owner = true
 position = Vector2(68.97, -389.281)
 rotation = 0.0875186
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_6chu2")
 disabled = true
 
