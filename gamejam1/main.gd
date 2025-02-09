@@ -13,13 +13,16 @@ var game_state = game_states.START_MENU
 func _ready() -> void:
 	gold_label.text = str("Gold: 0")
 	get_tree().paused = true
+<<<<<<< Updated upstream
 	
+=======
 
 func _process(delta: float) -> void:
 	$CanvasLayer/CD_Satellite.set_value(%SatelliteCooldownTimer.wait_time - %SatelliteCooldownTimer.time_left)
 	$CanvasLayer/CD_Teleport.set_value(teleport_cd.wait_time - teleport_cd.time_left)
 	$CanvasLayer/CD_Cow.set_value(%CowTimer.wait_time - %CowTimer.time_left)
 
+>>>>>>> Stashed changes
 func add_gold(gold) -> void:
 	gold_total += gold
 	gold_label.text = str('Gold: ', gold_total)
