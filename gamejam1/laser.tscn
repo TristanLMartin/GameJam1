@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://e3mo0coah6yh"]
+
+[ext_resource type="Script" uid="uid://0yq18f8dqwhl" path="res://laser.gd" id="1_6vqwg"]
+[ext_resource type="Texture2D" uid="uid://d32wwywor8w55" path="res://Assets/SpaceShooterRedux/PNG/Lasers/laserBlue14.png" id="2_g6b45"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vci3"]
+radius = 8.0
+height = 484.0
+
+[node name="Laser" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_6vqwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -208.75)
+scale = Vector2(1, 8.32456)
+texture = ExtResource("2_g6b45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -212)
+shape = SubResource("CapsuleShape2D_7vci3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

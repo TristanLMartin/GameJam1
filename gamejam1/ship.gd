@@ -6,6 +6,9 @@ signal research_signal(amount)
 @export var SPEED : int = 8
 @export var Dash_Multiplier : float = 3.0
 @export var dash_length : float = .2
+@export var has_laser = false
+@export var laser_active = false
+@export var laser_available = true
 @export var has_cows_unlocked = false #If you have the upgrade or not
 @export var cow_count = 1 #How many cows you have in your "inventory"
 @export var cows_placed = 1 #How many cows you place per press
@@ -26,7 +29,7 @@ var previous_teleport_location
 @onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
 @onready var satellite = get_node("/root/Main/Satellite")
 @onready var satellite_collision = get_node("/root/Main/Satellite/Path2D/PathFollow2D/Area2D/SatelliteCollision")
-
+var laser_scene
 var bullet_scene
 var dashing : bool = false
 var dash_length_timer : Timer
@@ -34,10 +37,13 @@ var dash_length_timer : Timer
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
+	laser_scene = preload("res://laser.tscn")
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
+	if Input.is_action_just_pressed("Shoot") and has_laser == true and laser_active == false and laser_available == true:
+		laser()
+	elif Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped() and laser_active == false:
 		shoot()
 		
 	%CowTimer.wait_time = cow_generation_time
@@ -101,12 +107,36 @@ func shoot() -> void:
 	add_child(bullet_instance)
 	%ShootSound.play()
 
+func laser() -> void:
+	var laser_instance = laser_scene.instantiate()
+	laser_instance.global_rotation = %PathFollow2D.global_rotation
+	laser_instance.global_position = %PathFollow2D.global_position
+	add_child(laser_instance)
+	laser_active = true
+	laser_available = false
+	%LaserActive.start()
+	%LaserActive.timeout.connect(_on_LaserActive_timeout)
+	%LaserCooldown.start()
+	%LaserCooldown.timeout.connect(_on_LaserCooldown_timeout)
+	
+	
+
+func _on_LaserActive_timeout() -> void:
+	#kill the laser child
+	laser_active = false
+	return
+
+func _on_LaserCooldown_timeout() -> void:
+	laser_available = true
+
 func _on_upgrade_requested(upgrade_id):
 	match upgrade_id:
 		"Upgrade1":
 			SPEED += 2
 		"Upgrade2":
 			bullet_timer.set_wait_time(bullet_timer.get_wait_time() - 0.3)
+		"Upgrade3":
+			has_laser = true
 		"Upgrade4":
 			has_cows_unlocked = true
 			%CowTimer.start()
