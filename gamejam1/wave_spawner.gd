@@ -2,7 +2,7 @@ extends Node2D
 
 
 var wave_number := 1
-const alien_scene : PackedScene = preload("res://alien.tscn")
+const alien_scene1 : PackedScene = preload("res://alien1.tscn")
 const alien_scene2 : PackedScene = preload("res://alien2.tscn")
 const alien_scene3 : PackedScene = preload("res://alien3.tscn")
 signal alien_death
@@ -31,25 +31,23 @@ func spawn_monster() -> void:
 	if max_enemies == 0:
 		return
 	
-	#if self.get_children().size() >= 5: #aliens are always -2 this value because of 2 children counted under wavespawner
-		#return
-	
 	%spawn_speed.wait_time = randf_range(1, 3)
 	var rand = RandomNumberGenerator.new()
 	%PathFollow2D.progress_ratio = rand.randf()
-	
-	var alien = alien_scene.instantiate() as CharacterBody2D
-	var alien2 = alien_scene2.instantiate() as CharacterBody2D
-	var alien3 = alien_scene3.instantiate() as CharacterBody2D
-	
+
+	# Randomly decide which alien to spawn
+	var alien_type = rand.randi_range(1, 3)
+	var alien : CharacterBody2D
+
+	if alien_type == 1:
+		alien = alien_scene1.instantiate() as CharacterBody2D
+	elif alien_type == 2:
+		alien = alien_scene2.instantiate() as CharacterBody2D
+	else:
+		alien = alien_scene3.instantiate() as CharacterBody2D
+
 	alien.global_position = %PathFollow2D.global_position
-	%PathFollow2D.progress_ratio = rand.randf()
-	alien2.global_position = %PathFollow2D.global_position
-	%PathFollow2D.progress_ratio = rand.randf()
-	alien3.global_position = %PathFollow2D.global_position
 	add_child(alien)
-	add_child(alien2)
-	add_child(alien3)
 	max_enemies -= 1
 	
 func start_next_wave() -> void:

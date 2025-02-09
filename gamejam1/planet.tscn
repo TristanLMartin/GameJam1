@@ -3,13 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="1_1odxm"]
 [ext_resource type="Script" uid="uid://b8da50ctwqg6f" path="res://planet.gd" id="1_mtr83"]
 [ext_resource type="Texture2D" uid="uid://bs2aujl60vt8x" path="res://Assets/Planets/Parts/light6.png" id="3_a75xc"]
-[ext_resource type="Script" uid="uid://ceb16rd1i8ifh" path="res://quadrant_1.gd" id="3_deh1b"]
+[ext_resource type="Script" path="res://quadrant_1.gd" id="3_deh1b"]
 [ext_resource type="Texture2D" uid="uid://b4xq08t1s8s7h" path="res://Assets/Menus/PNG/Green/Double/bar_square_small.png" id="4_x6khl"]
 [ext_resource type="Texture2D" uid="uid://b6o6usyrr0a72" path="res://Assets/Menus/PNG/Grey/Default/bar_square_large_square.png" id="5_x32po"]
 [ext_resource type="Script" uid="uid://knwgdtspxvqe" path="res://quadrant_2.gd" id="6_26qf8"]
 [ext_resource type="Texture2D" uid="uid://cuprqn0upalcw" path="res://Assets/Animals/PNG/Round/cow.png" id="6_p30nt"]
 [ext_resource type="Script" uid="uid://wfgogn44jgix" path="res://quadrant_3.gd" id="7_hs5tw"]
 [ext_resource type="Script" uid="uid://c3lqp2bg2qtsa" path="res://quadrant_4.gd" id="8_cit8o"]
+[ext_resource type="Script" path="res://quadrant_2.gd" id="6_26qf8"]
+[ext_resource type="Script" path="res://quadrant_3.gd" id="7_hs5tw"]
+[ext_resource type="Script" path="res://quadrant_4.gd" id="8_cit8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a75xc"]
 size = Vector2(77.0005, 10580)
