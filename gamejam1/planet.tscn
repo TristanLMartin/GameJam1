@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dur2ah53h3xw6"]
+[gd_scene load_steps=12 format=3 uid="uid://dur2ah53h3xw6"]
 
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="1_1odxm"]
 [ext_resource type="Script" uid="uid://b8da50ctwqg6f" path="res://planet.gd" id="1_mtr83"]
 [ext_resource type="Texture2D" uid="uid://bs2aujl60vt8x" path="res://Assets/Planets/Parts/light6.png" id="3_a75xc"]
+[ext_resource type="Script" uid="uid://ceb16rd1i8ifh" path="res://quadrant_1.gd" id="3_deh1b"]
 [ext_resource type="Texture2D" uid="uid://b4xq08t1s8s7h" path="res://Assets/Menus/PNG/Green/Double/bar_square_small.png" id="4_x6khl"]
 [ext_resource type="Texture2D" uid="uid://b6o6usyrr0a72" path="res://Assets/Menus/PNG/Grey/Default/bar_square_large_square.png" id="5_x32po"]
+[ext_resource type="Script" uid="uid://knwgdtspxvqe" path="res://quadrant_2.gd" id="6_26qf8"]
+[ext_resource type="Script" uid="uid://wfgogn44jgix" path="res://quadrant_3.gd" id="7_hs5tw"]
+[ext_resource type="Script" uid="uid://c3lqp2bg2qtsa" path="res://quadrant_4.gd" id="8_cit8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a75xc"]
 size = Vector2(77.0005, 10580)
@@ -36,8 +40,10 @@ shape = SubResource("CircleShape2D_lquwl")
 unique_name_in_owner = true
 position = Vector2(-202, -140)
 collision_mask = 2
+script = ExtResource("3_deh1b")
 
 [node name="Quadrant1Light" type="Sprite2D" parent="Quadrant1"]
+unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-8, -65)
 rotation = 1.56032
@@ -59,6 +65,7 @@ unique_name_in_owner = true
 position = Vector2(-202, -140)
 rotation = 1.5708
 collision_mask = 2
+script = ExtResource("6_26qf8")
 
 [node name="Barrier" type="Sprite2D" parent="Quadrant2"]
 z_index = 1
@@ -71,6 +78,7 @@ position = Vector2(-58, -346)
 polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
 
 [node name="Quadrant2Light" type="Sprite2D" parent="Quadrant2"]
+unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-68.0015, -407)
 rotation = 1.56032
@@ -82,6 +90,7 @@ unique_name_in_owner = true
 position = Vector2(-202, -140)
 rotation = 3.14159
 collision_mask = 2
+script = ExtResource("7_hs5tw")
 
 [node name="Barrier" type="Sprite2D" parent="Quadrant3"]
 z_index = 1
@@ -94,6 +103,7 @@ position = Vector2(-403, -285)
 polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
 
 [node name="Quadrant3Light" type="Sprite2D" parent="Quadrant3"]
+unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-409.999, -343.001)
 rotation = 1.56032
@@ -105,13 +115,7 @@ unique_name_in_owner = true
 position = Vector2(-202, -140)
 rotation = 4.71239
 collision_mask = 2
-
-[node name="Quadrant4Light" type="Sprite2D" parent="Quadrant4"]
-modulate = Color(0.760784, 0, 0.2, 0.482353)
-position = Vector2(-351, -6.99968)
-rotation = 1.56095
-scale = Vector2(0.802734, 0.820312)
-texture = ExtResource("3_a75xc")
+script = ExtResource("8_cit8o")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant4"]
 position = Vector2(-342, 58)
@@ -122,6 +126,14 @@ z_index = 1
 position = Vector2(-356, 200)
 scale = Vector2(2.2017, 1)
 texture = ExtResource("4_x6khl")
+
+[node name="Quadrant4Light" type="Sprite2D" parent="Quadrant4"]
+unique_name_in_owner = true
+modulate = Color(0.760784, 0, 0.2, 0.482353)
+position = Vector2(-351, -6.99968)
+rotation = 1.56095
+scale = Vector2(0.802734, 0.820312)
+texture = ExtResource("3_a75xc")
 
 [node name="MultiplierLabel" type="Label" parent="."]
 unique_name_in_owner = true
