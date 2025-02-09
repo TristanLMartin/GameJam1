@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var gold_value : int = 10
 var attacking = false
 var charging = false
+var laser_increasing = true
 
 func _ready() -> void:
 	planet.PlanetCollision.connect(_planet_collision)
@@ -18,6 +19,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	look_at(direction)
 	rotate(-1.5)
+	if laser_increasing:
+		%Laser.scale.x += 0.1
+	else:
+		%Laser.scale.x -= 0.1
+	if %Laser.scale.x >= 1:
+		laser_increasing = false
+	elif %Laser.scale.x <= 0.6:
+		laser_increasing = true
+	%LaserHit.rotate(0.1)
 
 func _planet_collision(body):
 		if charging or body != self:
