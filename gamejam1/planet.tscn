@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dur2ah53h3xw6"]
+[gd_scene load_steps=14 format=3 uid="uid://dur2ah53h3xw6"]
 
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="1_1odxm"]
 [ext_resource type="Script" uid="uid://b8da50ctwqg6f" path="res://planet.gd" id="1_mtr83"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cuprqn0upalcw" path="res://Assets/Animals/PNG/Round/cow.png" id="6_p30nt"]
 [ext_resource type="Script" uid="uid://wfgogn44jgix" path="res://quadrant_3.gd" id="7_hs5tw"]
 [ext_resource type="Script" uid="uid://c3lqp2bg2qtsa" path="res://quadrant_4.gd" id="8_cit8o"]
+[ext_resource type="AudioStream" uid="uid://cuxpomci0hxvm" path="res://Audio/cow_moo_2.wav" id="11_ndovs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a75xc"]
 size = Vector2(77.0005, 10580)
@@ -234,6 +235,12 @@ z_index = 1
 position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(6.357, 6.357)
 texture = ExtResource("5_x32po")
+
+[node name="CowDeath" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_ndovs")
+volume_db = 1.739
+pitch_scale = 1.5
 
 [connection signal="timeout" from="Quadrant4/QuadrantTimer4" to="." method="_on_quadrant_timer_timeout" binds= [3]]
 [connection signal="timeout" from="Quadrant1/QuadrantTimer1" to="." method="_on_quadrant_timer_timeout" binds= [0]]

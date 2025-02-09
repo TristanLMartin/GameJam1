@@ -108,5 +108,6 @@ func _on_upgrade_requested(upgrade_id):
 
 
 func _on_quadrant_timer_timeout(extra_arg_0: int) -> void:
+	%CowDeath.play()
 	print("quadrant", extra_arg_0 + 1)
 	_on_place_cows(-1, extra_arg_0 + 1)
