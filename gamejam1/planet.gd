@@ -9,6 +9,7 @@ var multiplier_resistance = 0
 signal PlanetDeath
 signal PlanetCollision
 var cow_quadrants = [0, 0, 0, 0]
+@onready var cow_icons = [%Cow1, %Cow2, %Cow3, %Cow4]
 
 func take_damage(damage : int, delta):
 	health -= damage * multiplier * delta
@@ -69,7 +70,20 @@ func _ready():
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 	
 func _on_place_cows(amount, quadrant):
+	cow_quadrants[quadrant - 1] += 1
 	
+	for n in range(0, 4):
+		var curr_cows = cow_quadrants[n]
+		if curr_cows >= 1:
+			cow_icons[n].visible = true
+		else:
+			cow_icons[n].visible = false
+		cow_icons[n].get_children()[0].text = str(curr_cows) + 'x'
+		
+	print(cow_quadrants)
+	
+	
+	print(quadrant)
 	cows += amount
 	
 func _on_place_research(amount):
