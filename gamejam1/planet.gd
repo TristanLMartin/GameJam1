@@ -70,7 +70,7 @@ func _ready():
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 	
 func _on_place_cows(amount, quadrant):
-	cow_quadrants[quadrant - 1] += 1
+	cow_quadrants[quadrant - 1] += amount
 	
 	for n in range(0, 4):
 		var curr_cows = cow_quadrants[n]
