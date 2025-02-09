@@ -17,7 +17,6 @@ script = ExtResource("1_px7e7")
 [node name="Laser" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
-z_index = -2
 position = Vector2(-0.813008, 114.024)
 scale = Vector2(0.955617, 1.32927)
 texture = ExtResource("2_87ewd")

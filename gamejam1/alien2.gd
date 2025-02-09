@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var planet : Node2D = get_node("/root/Main/Planet")
 @onready var wave_spawner = get_node('/root/Main/WaveSpawner')
 @onready var main = get_node('/root/Main')
+@onready var alien_deat_animation : PackedScene = preload("res://alien_death.tscn")
 @export var gold_value : int = 15
 var attacking = false
 var charging = false
@@ -26,13 +27,15 @@ func _planet_collision(body):
 		charging = true
 
 func on_hit() -> void:
-	health -= 1
-	#wave_spawner.alien_death.emit()
-	#queue_free()
-	
+	health -= 1	
 	if health <= 0:
 		wave_spawner.alien_death.emit()
 		main.add_gold(gold_value)
+		var death_animation = alien_deat_animation.instantiate()
+		death_animation.global_position = global_position
+
+		death_animation.play()
+		get_parent().add_child(death_animation)
 		queue_free()
 
 
