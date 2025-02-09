@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxasmmjm7iry2"]
 
-[ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien.gd" id="1_0cgv7"]
-[ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="1_816kv"]
+[ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien1.gd" id="1_nf7cr"]
+[ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="2_mgblm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cgv7"]
 radius = 66.0076
@@ -10,10 +10,10 @@ radius = 66.0076
 scale = Vector2(1.23, 1.23)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_0cgv7")
+script = ExtResource("1_nf7cr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_816kv")
+texture = ExtResource("2_mgblm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
