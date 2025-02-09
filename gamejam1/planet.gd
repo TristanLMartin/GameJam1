@@ -10,6 +10,7 @@ signal PlanetDeath
 signal PlanetCollision
 var cow_quadrants = [0, 0, 0, 0]
 @onready var cow_icons = [%Cow1, %Cow2, %Cow3, %Cow4]
+@onready var cow_timers = [%QuadrantTimer1, %QuadrantTimer2, %QuadrantTimer3, %QuadrantTimer4]
 
 func take_damage(damage : int, delta):
 	health -= damage * multiplier * delta
@@ -36,12 +37,17 @@ func _physics_process(delta: float) -> void:
 		for body in bodies:
 			PlanetCollision.emit(body)
 			if body.attacking:
-				is_attacked[quadrant.quadrant] = true
 				var damage_done = 1
 				if body.alien_type == 3:
 					damage_done = 3
-				current_multiplier = 1
-				total_damage += damage_done
+				if cow_quadrants[quadrant.quadrant] <= 0:
+					current_multiplier = 1
+					total_damage += damage_done
+					is_attacked[quadrant.quadrant] = true
+				elif cow_timers[quadrant.quadrant].time_left <= 0:
+					print("starting timer", cow_timers[quadrant.quadrant])
+					cow_timers[quadrant.quadrant].start()
+				
 		multiplier += current_multiplier
 	multiplier = max(multiplier - multiplier_resistance, 1)
 	%MultiplierLabel.text = str(multiplier,  'x')
@@ -70,7 +76,7 @@ func _ready():
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 	
 func _on_place_cows(amount, quadrant):
-	cow_quadrants[quadrant - 1] += amount
+	cow_quadrants[quadrant - 1] = max(0, amount + cow_quadrants[quadrant - 1])
 	
 	for n in range(0, 4):
 		var curr_cows = cow_quadrants[n]
@@ -99,3 +105,8 @@ func _on_upgrade_requested(upgrade_id):
 		"Upgrade9":
 			multiplier_resistance += multiplier_increment
 			
+
+
+func _on_quadrant_timer_timeout(extra_arg_0: int) -> void:
+	print("quadrant", extra_arg_0 + 1)
+	_on_place_cows(-1, extra_arg_0 + 1)

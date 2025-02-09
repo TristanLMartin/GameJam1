@@ -24,6 +24,8 @@ script = ExtResource("1_ig7tw")
 [node name="ColorRect" parent="." instance=ExtResource("2_4c57u")]
 
 [node name="Planet" parent="." instance=ExtResource("2_lquwl")]
+health = 100
+multiplier_increment = 0.8
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
 
