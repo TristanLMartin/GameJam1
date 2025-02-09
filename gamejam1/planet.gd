@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 				var damage_done = 1
 				if body.alien_type == 3:
 					damage_done = 3
-				print("attacking")
 				current_multiplier = 1
 				total_damage += damage_done
 		multiplier += current_multiplier
