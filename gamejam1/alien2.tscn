@@ -9,7 +9,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nttms"]
 resource_local_to_scene = true
 shader = ExtResource("4_0hh73")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(1, 0.129412, 0.227451, 1)
 shader_parameter/flash_pct = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cgv7"]
@@ -17,6 +17,7 @@ radius = 66.0076
 
 [sub_resource type="Animation" id="Animation_0hh73"]
 resource_name = "Flash"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,10 +25,10 @@ tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_pct")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.250965, 0.38901, 0.666667, 0.812349, 0.886942),
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.3, 0.666667, 0.812349, 0.886942),
 "transitions": PackedFloat32Array(0.933034, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.5, 1.0, 0.485, 0.867, 0.264, 0.0]
+"values": [0.0, 0.5, 1.0, 0.0, 0.867, 0.264, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_nttms"]
