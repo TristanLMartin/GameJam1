@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var alien_type : int = 3 #the alien type
 @onready var planet : Node2D = get_node("/root/Main/Planet")
 @onready var wave_spawner = get_node('/root/Main/WaveSpawner')
 @onready var main = get_node('/root/Main')
@@ -13,7 +14,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = global_position.direction_to(planet.global_position)
-	velocity = direction * 200
+	velocity = direction * 125
 	move_and_slide()
 
 func _planet_collision(body):
