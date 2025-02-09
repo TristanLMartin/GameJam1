@@ -325,6 +325,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_37rai")
+upgrade1_cost = 30
+upgrade2_cost = 50
+upgrade3_cost = 1000
+upgrade4_cost = 100
+upgrade5_cost = 100
+upgrade6_cost = 100
+upgrade7_cost = 100
+upgrade8_cost = 1000
+upgrade9_cost = 500
+upgrade10_cost = 100
+upgrade11_cost = 100
+upgrade12_cost = 200
+upgrade13_cost = 400
+upgrade14_cost = 200
+upgrade16_cost = 500
+upgrade17_cost = 200
 
 [node name="ColorRect" type="ColorRect" parent="Menus/UpgradeMenu"]
 material = SubResource("ShaderMaterial_37rai")

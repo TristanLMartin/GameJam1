@@ -11,9 +11,9 @@ signal upgrade_requested(upgrade_id)
 @export var upgrade9_counter = 0
 @export var upgrade9_max = 2
 @export var upgrade10_counter = 0
-@export var upgrade10_max = 1
+@export var upgrade10_max = 2
 @export var upgrade11_counter = 0
-@export var upgrade11_max = 1
+@export var upgrade11_max = 2
 @export var upgrade1_cost = 0
 @export var upgrade2_cost = 0
 @export var upgrade3_cost = 0
