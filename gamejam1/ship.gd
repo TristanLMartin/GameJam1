@@ -41,9 +41,10 @@ func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
 	laser_scene = preload("res://laser.tscn")
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
+	%LeftBooster.play()
+	%RightBooster.play()
 
 func _process(delta: float) -> void:
-	print(cow_count)
 	if Input.is_action_just_pressed("Shoot") and has_laser == true and laser_active == false and laser_available == true:
 		laser()
 	elif Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped() and laser_active == false:
@@ -88,6 +89,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	%LeftBooster.visible = false
+	%RightBooster.visible = false
 	var movement := 0
 	var velocity : float
 	if dashing:
@@ -96,8 +99,10 @@ func _physics_process(delta: float) -> void:
 		velocity = SPEED
 		
 	if Input.is_action_pressed("Move_Left"):
+		%LeftBooster.visible = true
 		movement -= velocity
 	if Input.is_action_pressed("Move_Right"):
+		%RightBooster.visible = true
 		movement += velocity
 	
 	path_to_follow.progress += movement
