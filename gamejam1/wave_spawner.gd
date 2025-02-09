@@ -4,19 +4,33 @@ extends Node2D
 var wave_number := 1
 const alien_scene : PackedScene = preload("res://alien.tscn")
 signal alien_death
+var aliens_killed_in_wave := 0
+var wave_in_progress := true #wave check
+var max_enemies = 5 * wave_number #scaling enemy total based on wave
 
 func _ready() -> void:
 	alien_death.connect(_on_alien_death)
 
 func _on_spawn_speed_timeout() -> void:
-	spawn_monster()
+	if wave_in_progress:
+		spawn_monster()
 	
 func _on_alien_death():
-	print("alien died")
+	aliens_killed_in_wave += 1
+	print("alien died in wave ", wave_number)
+	
+	if aliens_killed_in_wave >= 5 * wave_number:
+		print("Wave ", wave_number, " Completed!") #can use this as wave checker, add 1 every time completed
+		wave_in_progress = false
+		
+		start_next_wave()
 
 func spawn_monster() -> void:
-	if self.get_children().size() >= 5:
+	if max_enemies == 0:
 		return
+	
+	#if self.get_children().size() >= 5: #aliens are always -2 this value because of 2 children counted under wavespawner
+		#return
 	
 	%spawn_speed.wait_time = randf_range(1, 3)
 	var rand = RandomNumberGenerator.new()
@@ -25,10 +39,14 @@ func spawn_monster() -> void:
 	var alien = alien_scene.instantiate() as CharacterBody2D
 	alien.global_position = %PathFollow2D.global_position
 	add_child(alien)
+	max_enemies -= 1
 	
-	var aliens_spawned := 0
+func start_next_wave() -> void:
+	await get_tree().create_timer(3.0).timeout
+	wave_number += 1
+	aliens_killed_in_wave = 0
+	wave_in_progress = true
 	
-	aliens_spawned += 1
+	max_enemies = 5 * wave_number
+	print("Next wave starting! Total enemies to kill: ", max_enemies)
 	
-	#if aliens_spawned >= 5d:
-		#print("Wave ", wave_number, " Completed!")

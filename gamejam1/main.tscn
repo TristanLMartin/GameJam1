@@ -19,6 +19,9 @@ script = ExtResource("1_ig7tw")
 [node name="Planet" parent="." instance=ExtResource("2_lquwl")]
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
+SPEED = 8
+Dash_Multiplier = 3.0
+dash_length = 0.2
 
 [node name="WaveSpawner" parent="." instance=ExtResource("5_lquwl")]
 

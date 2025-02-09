@@ -1,8 +1,18 @@
 extends Node2D
 
+signal cow_signal(amount)
+
 @export var SPEED : int = 8
 @export var Dash_Multiplier : float = 3.0
 @export var dash_length : float = .2
+@export var has_cows_unlocked = false #If you have the upgrade or not
+@export var cow_count = 1 #How many cows you have in your "inventory"
+#We need to resolve when cow_count isn't a denomination of cows_placed (when the upgrade is bought)
+@export var cows_placed = 1 #How many cows you place per press
+@export var cow_generation_time = 10.0
+@export var has_satellites_unlocked = false
+@export var has_dash_unlocked = false
+@export var has_teleport_unlocked = false
 @onready var path_to_follow : PathFollow2D = %PathFollow2D
 @onready var bullet_timer : Timer = $Bullet_CD
 @onready var dash_timer : Timer = $Dash_CD
@@ -16,22 +26,26 @@ var dash_length_timer : Timer
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
+	#$CowTimer.timeout.connect(_on_CowTimer_timeout)
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
 		shoot()
+	#$CowTimer.wait_time = cow_generation_time
 	%CowTimer.wait_time = cow_generation_time
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 	
-	if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
-		print("dash")
-		dash()
+	if has_dash_unlocked:
+		if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
+			print("dash")
+			dash()
 	
-	if Input.is_action_just_pressed("Teleport") and teleport_timer.is_stopped():
-		print("teleport")
-		teleport()
+	if has_teleport_unlocked:
+		if Input.is_action_just_pressed("Teleport") and teleport_timer.is_stopped():
+			print("teleport")
+			teleport()
 
 
 func _physics_process(delta: float) -> void:
@@ -65,10 +79,15 @@ func _on_upgrade_requested(upgrade_id):
 		"Upgrade2":
 			bullet_timer.set_wait_time(bullet_timer.get_wait_time() - 0.3)
 		"Upgrade4":
-			print("You have cows!")
 			has_cows_unlocked = true
 			%CowTimer.start()
 			%CowTimer.timeout.connect(_on_CowTimer_timeout)
+		"Upgrade5":
+			has_satellites_unlocked = true
+		"Upgrade16":
+			has_dash_unlocked = true
+		"Upgrade17":
+			has_teleport_unlocked = true
 
 func dash() -> void:
 	dashing = true
@@ -93,13 +112,6 @@ func teleport() -> void:
 	else:
 		path_to_follow.progress_ratio -= .5
 
-
-@export var has_cows_unlocked = false #If you have the upgrade or not
-@export var cow_count = 1 #How many cows you have in your "inventory"
-#We need to resolve when cow_count isn't a denomination of cows_placed (when the upgrade is bought)
-@export var cows_placed = 1 #How many cows you place per press
-@export var cow_generation_time = 10.0
-signal cow_signal(amount)
 
 func _on_CowTimer_timeout() -> void:
 	cow_count += cows_placed
