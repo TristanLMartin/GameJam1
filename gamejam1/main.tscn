@@ -75,6 +75,17 @@ position = Vector2(326.5, 14)
 scale = Vector2(13.6458, 1)
 texture = ExtResource("8_4c57u")
 
+[node name="Gold" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 41.0
+offset_top = 40.0
+offset_right = 375.0
+offset_bottom = 177.0
+theme_override_colors/font_color = Color(0.285791, 0.222658, 0.0527675, 1)
+theme_override_colors/font_outline_color = Color(0.0501604, 1.03827e-05, 5.69221e-06, 1)
+theme_override_font_sizes/font_size = 100
+text = "Gold: 0"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("6_7mycd")
