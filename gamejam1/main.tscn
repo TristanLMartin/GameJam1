@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddhgt2xw7sn1v"]
+[gd_scene load_steps=12 format=3 uid="uid://ddhgt2xw7sn1v"]
 
 [ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dur2ah53h3xw6" path="res://planet.tscn" id="2_lquwl"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://e3eachgvj0rt" path="res://canvas_layer.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
 [ext_resource type="AudioStream" uid="uid://u452dl2gipw2" path="res://Audio/darude_spacestorm_1.2.wav" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b20mbx66o4nbk" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_l.png" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://bjc8jiy7fxjpm" path="res://Assets/Menus/PNG/Blue/Double/bar_round_large_r.png" id="7_kek77"]
+[ext_resource type="Texture2D" uid="uid://do3gef4k6t676" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_m.png" id="8_4c57u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
@@ -29,8 +32,8 @@ unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -327.0
-offset_right = 327.0
+offset_left = -328.0
+offset_right = 328.0
 offset_bottom = 27.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lquwl")
@@ -51,6 +54,22 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LeftCap" type="Sprite2D" parent="CanvasLayer/PlanetHealth"]
+show_behind_parent = true
+position = Vector2(-13, 14)
+texture = ExtResource("6_272bh")
+
+[node name="RightCap" type="Sprite2D" parent="CanvasLayer/PlanetHealth"]
+show_behind_parent = true
+position = Vector2(666, 14)
+texture = ExtResource("7_kek77")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/PlanetHealth"]
+show_behind_parent = true
+position = Vector2(326.5, 14)
+scale = Vector2(13.6458, 1)
+texture = ExtResource("8_4c57u")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
