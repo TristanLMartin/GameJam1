@@ -9,13 +9,19 @@ extends CharacterBody2D
 var attacking = false
 var charging = false
 var laser_increasing = true
+var wave_number
+
+@export var speed_per_wave = 10
+@export var base_speed = 100
 
 func _ready() -> void:
 	planet.PlanetCollision.connect(_planet_collision)
+	wave_number = wave_spawner.wave_number
+	base_speed = base_speed + (wave_number * speed_per_wave)
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = global_position.direction_to(planet.global_position)
-	velocity = direction * 125
+	velocity = direction * base_speed
 	move_and_slide()
 	look_at(direction)
 	rotate(-1.5)

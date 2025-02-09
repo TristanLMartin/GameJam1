@@ -6,16 +6,27 @@ extends CharacterBody2D
 @onready var main = get_node('/root/Main')
 @onready var alien_deat_animation : PackedScene = preload("res://alien_death.tscn")
 @export var gold_value : int = 10
+var wave_number
 var attacking = false
 var charging = false
 var laser_increasing = true
 
+@export var speed_per_wave = 10
+@export var base_speed = 75
+
 func _ready() -> void:
 	planet.PlanetCollision.connect(_planet_collision)
+	wave_number = wave_spawner.wave_number
+	base_speed = base_speed + (wave_number * speed_per_wave)
+	#wave_spawner.alien_speed.connect( _increase_speed)
+	#
+#func _increase_speed(wave_number) -> void:
+	#base_speed += wave_number * speed_per_wave #signalling wave spawner for velocity change
+	#print("speeding up for wave ", wave_number)
 
 func _physics_process(delta: float) -> void:
 	var direction : Vector2 = global_position.direction_to(planet.global_position)
-	velocity = direction * 75
+	velocity = direction * base_speed
 	move_and_slide()
 	look_at(direction)
 	rotate(-1.5)

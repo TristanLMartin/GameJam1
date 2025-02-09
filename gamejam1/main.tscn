@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cc3dbm2mukjcq" path="res://satellite.tscn" id="11_efxa6"]
 [ext_resource type="AudioStream" uid="uid://cdt8yubwiucae" path="res://Audio/full_OST_loop_1.5.wav" id="10_efxa6"]
 [ext_resource type="PackedScene" path="res://satellite.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://cc3dbm2mukjcq" path="res://satellite.tscn" id="11_efxa6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
