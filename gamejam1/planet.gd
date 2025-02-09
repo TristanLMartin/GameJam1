@@ -2,6 +2,7 @@ extends StaticBody2D
 
 @onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
 @export var health = 100
+@onready var healthLabel = get_node("/root/Main/CanvasLayer/PlanetHealth/HealthLabel")
 var multiplier = 1
 signal PlanetDeath
 signal PlanetCollision
@@ -10,6 +11,7 @@ func take_damage(damage : int, delta):
 	health -= damage * multiplier * delta
 	var health_bar : ProgressBar = get_node('/root/Main/CanvasLayer/PlanetHealth')
 	health_bar.value = health
+	healthLabel.text = str(health)
 	if health <= 0.0:
 		print("We're dead!")
 		PlanetDeath.emit()
