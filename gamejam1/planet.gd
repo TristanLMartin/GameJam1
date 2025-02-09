@@ -4,6 +4,7 @@ extends StaticBody2D
 @export var health = 100
 @onready var healthLabel = get_node("/root/Main/CanvasLayer/PlanetHealth/HealthLabel")
 var multiplier = 1
+var multiplier_resistance = 0
 signal PlanetDeath
 signal PlanetCollision
 
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 				current_multiplier = 1
 				total_damage += bodies.size()
 		multiplier += current_multiplier
+	multiplier = max(multiplier - multiplier_resistance, 0)
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
 	take_damage(total_damage, delta)
@@ -58,5 +60,6 @@ func _on_upgrade_requested(upgrade_id):
 			health += 50
 		"Upgrade8":
 			health = %PlanetHealth.max_value
-		#"Upgrade9": multiplier resistance
+		"Upgrade9":
+			multiplier_resistance += 0.8
 			
