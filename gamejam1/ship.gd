@@ -43,6 +43,7 @@ func _ready() -> void:
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
+	print(cow_count)
 	if Input.is_action_just_pressed("Shoot") and has_laser == true and laser_active == false and laser_available == true:
 		laser()
 	elif Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped() and laser_active == false:
@@ -146,7 +147,7 @@ func _on_upgrade_requested(upgrade_id):
 		"Upgrade6":
 			has_research_unlocked = true
 		"Upgrade10":
-			cow_count += 1
+			cow_count = (round(cow_count * cows_placed) / (cows_placed + 1)) + 1
 			cows_placed += 1
 		"Upgrade11":
 			cow_generation_time -= 2.5
