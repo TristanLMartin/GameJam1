@@ -55,12 +55,20 @@ func _on_button_pressed(button):
 		"Upgrade4":
 			emit_signal("upgrade_requested", "Upgrade4")
 			%Upgrade4.disabled = true
+			%Upgrade10.disabled = false
+			%Upgrade11.disabled = false
 		"Upgrade5":
 			emit_signal("upgrade_requested", "Upgrade5")
 			%Upgrade5.disabled = true
+			%Upgrade12.disabled = false
+			%Upgrade13.disabled = false
+			%Upgrade14.disabled = false
 		"Upgrade6":
 			emit_signal("upgrade_requested", "Upgrade6")
 			%Upgrade6.disabled = true
+			%Upgrade15.disabled = false
+			%Upgrade16.disabled = false
+			%Upgrade17.disabled = false
 		"Upgrade7":
 			emit_signal("upgrade_requested", "Upgrade7")
 		"Upgrade8":
