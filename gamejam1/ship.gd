@@ -11,6 +11,8 @@ signal research_signal(amount)
 @export var cows_placed = 1 #How many cows you place per press
 @export var cow_generation_time = 10.0
 @export var has_satellites_unlocked = false
+@export var satellite_count = 1
+@export var satellite_generation_time = 20.0
 @export var has_research_unlocked = false
 @export var research_count = 1
 @export var has_dash_unlocked = false
