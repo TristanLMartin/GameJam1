@@ -30,6 +30,7 @@ var previous_teleport_location
 @onready var satellite = get_node("/root/Main/Satellite")
 @onready var satellite_collision = get_node("/root/Main/Satellite/Path2D/PathFollow2D/Area2D/SatelliteCollision")
 var laser_scene
+var laser_instance
 var bullet_scene
 var dashing : bool = false
 var dash_length_timer : Timer
@@ -79,8 +80,10 @@ func _process(delta: float) -> void:
 			teleporting = false
 			%TeleportAnimation.scale.x = 0
 			%TeleportAnimation.scale.y = 0
-		
-		
+	if laser_active == true:
+		laser_instance.global_rotation = %PathFollow2D.global_rotation
+		laser_instance.global_position = %PathFollow2D.global_position * 1.2
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -108,23 +111,20 @@ func shoot() -> void:
 	%ShootSound.play()
 
 func laser() -> void:
-	var laser_instance = laser_scene.instantiate()
-	laser_instance.global_rotation = %PathFollow2D.global_rotation
-	laser_instance.global_position = %PathFollow2D.global_position
-	add_child(laser_instance)
+	laser_instance = laser_scene.instantiate()
 	laser_active = true
 	laser_available = false
+	add_child(laser_instance)
 	%LaserActive.start()
 	%LaserActive.timeout.connect(_on_LaserActive_timeout)
 	%LaserCooldown.start()
 	%LaserCooldown.timeout.connect(_on_LaserCooldown_timeout)
 	
-	
 
 func _on_LaserActive_timeout() -> void:
-	#kill the laser child
 	laser_active = false
-	return
+	laser_instance.queue_free()
+	
 
 func _on_LaserCooldown_timeout() -> void:
 	laser_available = true
