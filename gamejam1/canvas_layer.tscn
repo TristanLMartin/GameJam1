@@ -1,7 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=38 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://dde78gqcxje4x" path="res://Assets/Menus/UI Assets/Card X3/Card X5.png" id="4_0qrqu"]
 [ext_resource type="Texture2D" uid="uid://b5xqa1m6dxpsr" path="res://Assets/Menus/UI Assets/Button 1/Button Normal.png" id="5_5nuxi"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dxwe7wje6yq0v" path="res://Assets/Menus/UI Assets/IconsWenrexa/04.png" id="18_lljfd"]
 [ext_resource type="Texture2D" uid="uid://c7x33f15jkjd8" path="res://Assets/Menus/UI Assets/IconsWenrexa2/09.png" id="19_qn1ce"]
 [ext_resource type="Texture2D" uid="uid://bs3tmg2c1muhx" path="res://Assets/Menus/UI Assets/IconsWenrexa/32.png" id="20_31fxs"]
+[ext_resource type="Script" uid="uid://bt2l5exeucb3p" path="res://start_menu.gd" id="25_07c00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -926,6 +927,41 @@ libraries = {
 &"": SubResource("AnimationLibrary_n6wdb")
 }
 
+[node name="StartMenu" type="Control" parent="Menus"]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("25_07c00")
+
+[node name="ColorRect" type="ColorRect" parent="Menus/StartMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.196078)
+
+[node name="Button" type="Button" parent="Menus/StartMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -72.0
+offset_right = 122.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start
+"
+
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Quit" to="Menus/PauseMenu" method="_on_quit_pressed"]
@@ -945,3 +981,4 @@ libraries = {
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3/Upgrade14" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade14"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2/Upgrade16" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade16"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3/Upgrade17" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade17"]]
+[connection signal="pressed" from="Menus/StartMenu/Button" to="Menus/StartMenu" method="_on_button_pressed"]

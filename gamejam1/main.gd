@@ -1,13 +1,14 @@
 extends Node
 
 enum game_states {PAUSE_MENU, PLAYING, UPGRADING, START_MENU}
-var game_state = game_states.PLAYING
+var game_state = game_states.START_MENU
 
 @export var gold_total : int = 0
 @onready var gold_label = %Gold
 
 func _ready() -> void:
 	gold_label.text = str("Gold: 0")
+	get_tree().paused = true
 
 #func _process(delta: float) -> void:
 	#print(game_state)
