@@ -42,6 +42,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 		
+	%SatelliteTimer.wait_time = satellite_generation_time
+	if Input.is_action_just_pressed("Satellite_Left"):
+		place_satellite_left()
+		
+	if Input.is_action_just_pressed("Satellite_Right"):
+		place_satellite_right()
+		
 	if Input.is_action_just_pressed("Place_Research"):
 		place_research_on_planet()
 	
@@ -101,6 +108,8 @@ func _on_upgrade_requested(upgrade_id):
 			%CowTimer.timeout.connect(_on_CowTimer_timeout)
 		"Upgrade5":
 			has_satellites_unlocked = true
+			%SatelliteTimer.start()
+			%SatelliteTimer.timeout.connect(_on_SatelliteTimer_timeout)
 		"Upgrade6":
 			has_research_unlocked = true
 		"Upgrade10":
@@ -139,20 +148,25 @@ func teleport() -> void:
 
 
 func _on_CowTimer_timeout() -> void:
-	cow_count += cows_placed
+	cow_count += 1
 
 func place_cows_on_planet() -> void:
 	if has_cows_unlocked == true and cow_count > 0:
 		cow_count -= 1 #Takes cows from "inventory"
 		cow_signal.emit(cows_placed) #Sends a signal with amount of cows to place
 	
-
-
-#func satellite_left() -> void:
+func _on_SatelliteTimer_timeout() -> void:
+	satellite_count += 1
+	
+func place_satellite_left() -> void:
+	if has_satellites_unlocked == true and satellite_count > 0:
+		return
+	
+func place_satellite_right() -> void:
+	if has_satellites_unlocked == true and satellite_count > 0:
+		return
 	
 
-#func satellite_right() -> void:
-	
 
 func place_research_on_planet() -> void:
 	if has_research_unlocked == true and research_count > 0:
