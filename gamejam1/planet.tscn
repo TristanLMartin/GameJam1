@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dur2ah53h3xw6"]
+[gd_scene load_steps=13 format=3 uid="uid://dur2ah53h3xw6"]
 
 [ext_resource type="Texture2D" uid="uid://lm2ike7airpm" path="res://Assets/Planets/Planets/planet00.png" id="1_1odxm"]
 [ext_resource type="Script" uid="uid://b8da50ctwqg6f" path="res://planet.gd" id="1_mtr83"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b4xq08t1s8s7h" path="res://Assets/Menus/PNG/Green/Double/bar_square_small.png" id="4_x6khl"]
 [ext_resource type="Texture2D" uid="uid://b6o6usyrr0a72" path="res://Assets/Menus/PNG/Grey/Default/bar_square_large_square.png" id="5_x32po"]
 [ext_resource type="Script" uid="uid://knwgdtspxvqe" path="res://quadrant_2.gd" id="6_26qf8"]
+[ext_resource type="Texture2D" uid="uid://cuprqn0upalcw" path="res://Assets/Animals/PNG/Round/cow.png" id="6_p30nt"]
 [ext_resource type="Script" uid="uid://wfgogn44jgix" path="res://quadrant_3.gd" id="7_hs5tw"]
 [ext_resource type="Script" uid="uid://c3lqp2bg2qtsa" path="res://quadrant_4.gd" id="8_cit8o"]
 
@@ -36,13 +37,13 @@ texture = ExtResource("1_1odxm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lquwl")
 
-[node name="Quadrant1" type="Area2D" parent="."]
+[node name="Quadrant4" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-202, -140)
 collision_mask = 2
 script = ExtResource("3_deh1b")
 
-[node name="Quadrant1Light" type="Sprite2D" parent="Quadrant1"]
+[node name="QuadrantLight4" type="Sprite2D" parent="Quadrant4"]
 unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-8, -65)
@@ -50,34 +51,49 @@ rotation = 1.56032
 scale = Vector2(0.802734, 0.820312)
 texture = ExtResource("3_a75xc")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant4"]
 position = Vector2(0, -2)
 polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
 
-[node name="Barrier" type="Sprite2D" parent="Quadrant1"]
+[node name="Barrier" type="Sprite2D" parent="Quadrant4"]
 z_index = 1
 position = Vector2(-1.31821, 142)
 scale = Vector2(2.24911, 1)
 texture = ExtResource("4_x6khl")
 
-[node name="Quadrant2" type="Area2D" parent="."]
+[node name="Cow4" type="Sprite2D" parent="Quadrant4"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-4, -35)
+texture = ExtResource("6_p30nt")
+
+[node name="CowCount4" type="Label" parent="Quadrant4/Cow4"]
+offset_left = 65.0
+offset_top = -49.0
+offset_right = 144.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "x1"
+
+[node name="Quadrant1" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-202, -140)
 rotation = 1.5708
 collision_mask = 2
 script = ExtResource("6_26qf8")
 
-[node name="Barrier" type="Sprite2D" parent="Quadrant2"]
+[node name="Barrier" type="Sprite2D" parent="Quadrant1"]
 z_index = 1
 position = Vector2(-66.0138, -202)
 scale = Vector2(2.2017, 1)
 texture = ExtResource("4_x6khl")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant1"]
 position = Vector2(-58, -346)
 polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
 
-[node name="Quadrant2Light" type="Sprite2D" parent="Quadrant2"]
+[node name="QuadrantLight1" type="Sprite2D" parent="Quadrant1"]
 unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-68.0015, -407)
@@ -85,24 +101,40 @@ rotation = 1.56032
 scale = Vector2(0.802734, 0.820312)
 texture = ExtResource("3_a75xc")
 
-[node name="Quadrant3" type="Area2D" parent="."]
+[node name="Cow1" type="Sprite2D" parent="Quadrant1"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-27.0013, -371)
+rotation = -1.5708
+texture = ExtResource("6_p30nt")
+
+[node name="CowCount1" type="Label" parent="Quadrant1/Cow1"]
+offset_left = 63.0
+offset_top = -42.0
+offset_right = 142.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "x1"
+
+[node name="Quadrant2" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-202, -140)
 rotation = 3.14159
 collision_mask = 2
 script = ExtResource("7_hs5tw")
 
-[node name="Barrier" type="Sprite2D" parent="Quadrant3"]
+[node name="Barrier" type="Sprite2D" parent="Quadrant2"]
 z_index = 1
 position = Vector2(-409, -142.001)
 scale = Vector2(2.2017, 1)
 texture = ExtResource("4_x6khl")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant2"]
 position = Vector2(-403, -285)
 polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
 
-[node name="Quadrant3Light" type="Sprite2D" parent="Quadrant3"]
+[node name="QuadrantLight2" type="Sprite2D" parent="Quadrant2"]
 unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-409.999, -343.001)
@@ -110,30 +142,62 @@ rotation = 1.56032
 scale = Vector2(0.802734, 0.820312)
 texture = ExtResource("3_a75xc")
 
-[node name="Quadrant4" type="Area2D" parent="."]
+[node name="Cow2" type="Sprite2D" parent="Quadrant2"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-375.999, -317.001)
+rotation = -3.14159
+texture = ExtResource("6_p30nt")
+
+[node name="CowCount2" type="Label" parent="Quadrant2/Cow2"]
+offset_left = 64.0
+offset_top = -46.0
+offset_right = 143.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "x1"
+
+[node name="Quadrant3" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-202, -140)
 rotation = 4.71239
 collision_mask = 2
 script = ExtResource("8_cit8o")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Quadrant3"]
 position = Vector2(-342, 58)
 polygon = PackedVector2Array(201, 142, 203, -442, 47, -422, -93, -364, -210, -273, -301, -152, -363, -9, -386, 143)
 
-[node name="Barrier" type="Sprite2D" parent="Quadrant4"]
+[node name="Barrier" type="Sprite2D" parent="Quadrant3"]
 z_index = 1
 position = Vector2(-356, 200)
 scale = Vector2(2.2017, 1)
 texture = ExtResource("4_x6khl")
 
-[node name="Quadrant4Light" type="Sprite2D" parent="Quadrant4"]
+[node name="QuadrantLight3" type="Sprite2D" parent="Quadrant3"]
 unique_name_in_owner = true
 modulate = Color(0.760784, 0, 0.2, 0.482353)
 position = Vector2(-351, -6.99968)
 rotation = 1.56095
 scale = Vector2(0.802734, 0.820312)
 texture = ExtResource("3_a75xc")
+
+[node name="Cow3" type="Sprite2D" parent="Quadrant3"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-300, 0)
+rotation = 1.5708
+texture = ExtResource("6_p30nt")
+
+[node name="CowCount3" type="Label" parent="Quadrant3/Cow3"]
+offset_left = 64.0003
+offset_top = -39.0
+offset_right = 143.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "x1"
 
 [node name="MultiplierLabel" type="Label" parent="."]
 unique_name_in_owner = true
