@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxasmmjm7iry2"]
+[gd_scene load_steps=7 format=3 uid="uid://bxasmmjm7iry2"]
 
 [ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien1.gd" id="1_5avau"]
 [ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="2_mgblm"]
 [ext_resource type="Texture2D" uid="uid://dhcsb78855ge2" path="res://Assets/UFO/PNG/laserBeige1.png" id="2_wk2vo"]
 [ext_resource type="Texture2D" uid="uid://cci8ihhovn1v1" path="res://Assets/UFO/PNG/laserBeige_burst.png" id="3_g5epv"]
+[ext_resource type="PackedScene" uid="uid://bwtdhyj50rg52" path="res://trail.tscn" id="5_eobun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cgv7"]
 radius = 66.0076
 
 [node name="Alien" type="CharacterBody2D"]
+rotation = 0.174533
 scale = Vector2(1.23, 1.23)
 collision_layer = 2
 collision_mask = 3
@@ -37,5 +39,9 @@ shape = SubResource("CircleShape2D_0cgv7")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="Trail" parent="." instance=ExtResource("5_eobun")]
+position = Vector2(3.87188, -71.68)
+rotation = -3.1232
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

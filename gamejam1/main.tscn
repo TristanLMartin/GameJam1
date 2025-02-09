@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://e3eachgvj0rt" path="res://canvas_layer.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
-[ext_resource type="AudioStream" uid="uid://u452dl2gipw2" path="res://Audio/darude_spacestorm_1.2.wav" id="6_7mycd"]
 [ext_resource type="Texture2D" uid="uid://b20mbx66o4nbk" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_l.png" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://bjc8jiy7fxjpm" path="res://Assets/Menus/PNG/Blue/Double/bar_round_large_r.png" id="7_kek77"]
 [ext_resource type="Texture2D" uid="uid://do3gef4k6t676" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_m.png" id="8_4c57u"]
-[ext_resource type="PackedScene" uid="uid://cc3dbm2mukjcq" path="res://satellite.tscn" id="11_efxa6"]
+[ext_resource type="AudioStream" uid="uid://o1tt230br1gk" path="res://Audio/full_OST_loop1.1.wav" id="10_efxa6"]
+[ext_resource type="PackedScene" path="res://satellite.tscn" id="11_efxa6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
@@ -89,7 +89,7 @@ text = "Gold: 0"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-stream = ExtResource("6_7mycd")
+stream = ExtResource("10_efxa6")
 autoplay = true
 
 [node name="CowTimer" type="Timer" parent="."]

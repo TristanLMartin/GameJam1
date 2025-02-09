@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfxnxq6ia2ieh"]
+[gd_scene load_steps=12 format=3 uid="uid://dfxnxq6ia2ieh"]
 
 [ext_resource type="Script" uid="uid://vrn5uecdw6gw" path="res://alien2.gd" id="1_px7e7"]
 [ext_resource type="Texture2D" uid="uid://b46pwaw7pg2ko" path="res://Assets/UFO/PNG/laserGreen1.png" id="2_87ewd"]
 [ext_resource type="Texture2D" uid="uid://d2dol3m5d5075" path="res://Assets/UFO/PNG/shipGreen_manned.png" id="2_px7e7"]
 [ext_resource type="Texture2D" uid="uid://ba7tliwi311lt" path="res://Assets/UFO/PNG/laserGreen_burst.png" id="3_0hh73"]
-[ext_resource type="Shader" uid="uid://csf5d8mdesqhj" path="res://flash.gdshader" id="4_0hh73"]
+[ext_resource type="Shader" path="res://flash.gdshader" id="4_0hh73"]
+[ext_resource type="PackedScene" uid="uid://byh3leuw4hro1" path="res://trail2.tscn" id="6_nttms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nttms"]
 resource_local_to_scene = true
 shader = ExtResource("4_0hh73")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_color = Color(1, 0.129412, 0.227451, 1)
 shader_parameter/flash_pct = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cgv7"]
@@ -17,6 +18,7 @@ radius = 66.0076
 
 [sub_resource type="Animation" id="Animation_0hh73"]
 resource_name = "Flash"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,10 +26,10 @@ tracks/0/path = NodePath("Sprite2D:material:shader_parameter/flash_pct")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.250965, 0.38901, 0.666667, 0.812349, 0.886942),
+"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.3, 0.666667, 0.812349, 0.886942),
 "transitions": PackedFloat32Array(0.933034, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.5, 1.0, 0.485, 0.867, 0.264, 0.0]
+"values": [0.0, 0.5, 1.0, 0.0, 0.867, 0.264, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_nttms"]
@@ -75,5 +77,9 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_bt2l0")
 }
+
+[node name="Trail" parent="." instance=ExtResource("6_nttms")]
+position = Vector2(-1.17647, -70.5882)
+rotation = 3.13865
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
