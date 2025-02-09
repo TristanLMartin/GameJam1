@@ -85,6 +85,7 @@ unique_name_in_owner = true
 wait_time = 10.0
 
 [node name="SatelliteTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 20.0
 
 [connection signal="PlanetDeath" from="Planet" to="." method="_on_planet_planet_death"]
