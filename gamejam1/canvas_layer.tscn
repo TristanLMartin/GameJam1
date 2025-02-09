@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://dde78gqcxje4x" path="res://Assets/Menus/UI Assets/Card X3/Card X5.png" id="4_0qrqu"]
 [ext_resource type="Texture2D" uid="uid://b5xqa1m6dxpsr" path="res://Assets/Menus/UI Assets/Button 1/Button Normal.png" id="5_5nuxi"]
@@ -24,10 +25,14 @@
 [ext_resource type="Texture2D" uid="uid://dxwe7wje6yq0v" path="res://Assets/Menus/UI Assets/IconsWenrexa/04.png" id="18_lljfd"]
 [ext_resource type="Texture2D" uid="uid://c7x33f15jkjd8" path="res://Assets/Menus/UI Assets/IconsWenrexa2/09.png" id="19_qn1ce"]
 [ext_resource type="Texture2D" uid="uid://bs3tmg2c1muhx" path="res://Assets/Menus/UI Assets/IconsWenrexa/32.png" id="20_31fxs"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://bt2l5exeucb3p" path="res://start_menu.gd" id="25_07c00"]
 [ext_resource type="Texture2D" uid="uid://c5at7nrofg7aw" path="res://Assets/Menus/UI Assets/Card X1/Card X2.png" id="26_lp2dk"]
 [ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
 [ext_resource type="AudioStream" uid="uid://duv052cw5bkd5" path="res://Audio/upgrade.wav" id="28_4piyb"]
+=======
+[ext_resource type="Script" path="res://start_menu.gd" id="25_07c00"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")

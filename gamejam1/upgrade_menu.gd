@@ -253,6 +253,8 @@ func _on_button_pressed(button):
 				button4_available = false
 				button10_available = true
 				button11_available = true
+				var cow = get_node("/root/Main/CanvasLayer/CD_Cow")
+				cow.show()
 		"Upgrade5":
 			if button5_money == true:
 				%UpgradeNoise.play()
@@ -262,6 +264,8 @@ func _on_button_pressed(button):
 				button12_available = true
 				button13_available = true
 				button14_available = true
+				var satellite = get_node("/root/Main/CanvasLayer/CD_Satellite")
+				satellite.show()
 		"Upgrade6":
 			if button6_money == true:
 				%UpgradeNoise.play()
@@ -338,3 +342,5 @@ func _on_button_pressed(button):
 				main.subtract_gold(upgrade17_cost)
 				emit_signal("upgrade_requested", "Upgrade17")
 				button17_available = false
+				var teleport = get_node("/root/Main/CanvasLayer/CD_Teleport")
+				teleport.show()
