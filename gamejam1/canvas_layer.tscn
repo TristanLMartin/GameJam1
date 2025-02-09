@@ -565,6 +565,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer"]
@@ -589,6 +590,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer3"]
@@ -628,6 +630,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer"]
@@ -652,6 +655,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer2"]
@@ -676,6 +680,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3"]
@@ -715,6 +720,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer"]
@@ -739,6 +745,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2"]
@@ -763,6 +770,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3"]
