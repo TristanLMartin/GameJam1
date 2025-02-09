@@ -50,6 +50,7 @@ func shoot() -> void:
 	bullet_instance.global_rotation = %PathFollow2D.global_rotation
 	bullet_instance.global_position = %PathFollow2D.global_position * 1.2
 	add_child(bullet_instance)
+	%ShootSound.play()
 
 
 func dash() -> void:

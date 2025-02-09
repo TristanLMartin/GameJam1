@@ -16,3 +16,6 @@ texture = ExtResource("1_816kv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
 shape = SubResource("CircleShape2D_0cgv7")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
