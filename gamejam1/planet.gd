@@ -51,7 +51,6 @@ func _ready():
 	
 func _on_place_cows(amount):
 	cows += amount
-	print(cows)
 	
 func _on_upgrade_requested(upgrade_id):
 	match upgrade_id:

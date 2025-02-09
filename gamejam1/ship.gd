@@ -29,6 +29,7 @@ func _ready() -> void:
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
+	print(cow_count)
 	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
 		shoot()
 	#$CowTimer.wait_time = cow_generation_time
@@ -85,6 +86,7 @@ func _on_upgrade_requested(upgrade_id):
 			has_satellites_unlocked = true
 		"Upgrade10":
 			cow_count += 1
+			cows_placed += 1
 		"Upgrade11":
 			cow_generation_time -= 2.5
 		"Upgrade16":
@@ -120,10 +122,9 @@ func _on_CowTimer_timeout() -> void:
 	cow_count += cows_placed
 
 func place_cows_on_planet() -> void:
-	if has_cows_unlocked == true and cow_count >= cows_placed: #Checks if you have the cow upgrade and have cows off cooldown
-		cow_count -= cows_placed #Takes cows from "inventory"
+	if has_cows_unlocked == true and cow_count > 0:
+		cow_count -= 1 #Takes cows from "inventory"
 		cow_signal.emit(cows_placed) #Sends a signal with amount of cows to place
-		print("cow placed")
 	
 
 
