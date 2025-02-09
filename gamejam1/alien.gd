@@ -14,7 +14,6 @@ func _physics_process(delta: float) -> void:
 
 func _planet_collision(body):
 		attacking = false
-		print(body, self)
 
 func on_hit() -> void:
 	wave_spawner.alien_death.emit()
