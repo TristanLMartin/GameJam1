@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 	var direction : Vector2 = global_position.direction_to(planet.global_position)
 	velocity = direction * 50
 	move_and_slide()
+	look_at(direction)
+	rotate(-1.5)
 
 func _planet_collision(body):
 		if charging or body != self:
@@ -36,3 +38,4 @@ func on_hit() -> void:
 
 func _on_timer_timeout() -> void:
 	attacking = true
+	%Laser.visible = true

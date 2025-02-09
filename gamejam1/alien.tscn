@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxasmmjm7iry2"]
+[gd_scene load_steps=6 format=3 uid="uid://bxasmmjm7iry2"]
 
 [ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien.gd" id="1_0cgv7"]
 [ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="1_816kv"]
+[ext_resource type="Texture2D" uid="uid://dhcsb78855ge2" path="res://Assets/UFO/PNG/laserBeige1.png" id="2_wk2vo"]
+[ext_resource type="Texture2D" uid="uid://cci8ihhovn1v1" path="res://Assets/UFO/PNG/laserBeige_burst.png" id="3_g5epv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0cgv7"]
 radius = 66.0076
@@ -11,6 +13,22 @@ scale = Vector2(1.23, 1.23)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_0cgv7")
+
+[node name="Laser" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -2
+position = Vector2(-0.813008, 114.024)
+scale = Vector2(0.955616, 1.32927)
+texture = ExtResource("2_wk2vo")
+
+[node name="LaserHit" type="Sprite2D" parent="Laser"]
+z_index = -2
+position = Vector2(1.70155, 51.8349)
+rotation = -3.13824
+scale = Vector2(0.708561, 0.472714)
+skew = 0.00313723
+texture = ExtResource("3_g5epv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_816kv")
