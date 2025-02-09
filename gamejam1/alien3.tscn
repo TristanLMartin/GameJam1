@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://23tlqjku3nmo"]
+
+[ext_resource type="Script" uid="uid://uojmycqhvmuh" path="res://alien3.gd" id="1_3bf4f"]
+[ext_resource type="Texture2D" uid="uid://dfwsjmgiam574" path="res://Assets/UFO/PNG/shipPink_manned.png" id="2_3bf4f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cgv7"]
+radius = 66.0076
+
+[node name="Alien" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_3bf4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3bf4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 12)
+shape = SubResource("CircleShape2D_0cgv7")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -3,6 +3,8 @@ extends Node2D
 
 var wave_number := 1
 const alien_scene : PackedScene = preload("res://alien.tscn")
+const alien_scene2 : PackedScene = preload("res://alien2.tscn")
+const alien_scene3 : PackedScene = preload("res://alien3.tscn")
 signal alien_death
 var aliens_killed_in_wave := 0
 var wave_in_progress := true #wave check
@@ -17,7 +19,7 @@ func _on_spawn_speed_timeout() -> void:
 	
 func _on_alien_death():
 	aliens_killed_in_wave += 1
-	print("alien died in wave ", wave_number)
+	print("alien died in wave ", wave_number, ": ", aliens_killed_in_wave)
 	
 	if aliens_killed_in_wave >= 5 * wave_number:
 		print("Wave ", wave_number, " Completed!") #can use this as wave checker, add 1 every time completed
@@ -37,8 +39,17 @@ func spawn_monster() -> void:
 	%PathFollow2D.progress_ratio = rand.randf()
 	
 	var alien = alien_scene.instantiate() as CharacterBody2D
+	var alien2 = alien_scene2.instantiate() as CharacterBody2D
+	var alien3 = alien_scene3.instantiate() as CharacterBody2D
+	
 	alien.global_position = %PathFollow2D.global_position
+	%PathFollow2D.progress_ratio = rand.randf()
+	alien2.global_position = %PathFollow2D.global_position
+	%PathFollow2D.progress_ratio = rand.randf()
+	alien3.global_position = %PathFollow2D.global_position
 	add_child(alien)
+	add_child(alien2)
+	add_child(alien3)
 	max_enemies -= 1
 	
 func start_next_wave() -> void:
