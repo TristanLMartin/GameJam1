@@ -1,6 +1,7 @@
 extends Node2D
 
 signal cow_signal(amount)
+signal research_signal(amount)
 
 @export var SPEED : int = 8
 @export var Dash_Multiplier : float = 3.0
@@ -10,6 +11,8 @@ signal cow_signal(amount)
 @export var cows_placed = 1 #How many cows you place per press
 @export var cow_generation_time = 10.0
 @export var has_satellites_unlocked = false
+@export var has_research_unlocked = false
+@export var research_count = 1
 @export var has_dash_unlocked = false
 @export var has_teleport_unlocked = false
 var teleporting = false
@@ -30,13 +33,15 @@ func _ready() -> void:
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
-	print(cow_count)
 	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
 		shoot()
-	#$CowTimer.wait_time = cow_generation_time
+		
 	%CowTimer.wait_time = cow_generation_time
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
+		
+	if Input.is_action_just_pressed("Place_Research"):
+		place_research_on_planet()
 	
 	if has_dash_unlocked:
 		if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
@@ -94,6 +99,8 @@ func _on_upgrade_requested(upgrade_id):
 			%CowTimer.timeout.connect(_on_CowTimer_timeout)
 		"Upgrade5":
 			has_satellites_unlocked = true
+		"Upgrade6":
+			has_research_unlocked = true
 		"Upgrade10":
 			cow_count += 1
 			cows_placed += 1
@@ -145,5 +152,9 @@ func place_cows_on_planet() -> void:
 #func satellite_right() -> void:
 	
 
-#func place_mine() -> void:
+func place_research_on_planet() -> void:
+	if has_research_unlocked == true and research_count > 0:
+		research_count -= 1
+		research_signal.emit(research_count)
+		
 	

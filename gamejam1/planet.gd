@@ -42,15 +42,20 @@ func _physics_process(delta: float) -> void:
 
 
 var cows = 0
+var research = 0
 
 func _ready():
 	var ship = get_node("/root/Main/Ship")
 	ship.cow_signal.connect(_on_place_cows)
+	ship.research_signal.connect(_on_place_research)
 	%PlanetHealth.max_value = health
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 	
 func _on_place_cows(amount):
 	cows += amount
+	
+func _on_place_research(amount):
+	research += amount
 	
 func _on_upgrade_requested(upgrade_id):
 	match upgrade_id:
