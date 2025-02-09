@@ -235,6 +235,16 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="UpgradeHint" type="Label" parent="Menus"]
+unique_name_in_owner = true
+z_index = 4
+layout_mode = 0
+offset_left = 1473.0
+offset_top = 107.0
+offset_right = 1608.0
+offset_bottom = 130.0
+text = "TAB for Upgrades"
+
 [node name="PauseMenu" type="Control" parent="Menus"]
 process_mode = 3
 layout_mode = 1

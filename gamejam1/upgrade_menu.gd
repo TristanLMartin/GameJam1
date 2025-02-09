@@ -67,16 +67,19 @@ var button17_available = false
 
 func _ready():
 	$AnimationPlayer.play("RESET")
+	%UpgradeHint.visible = true
 	hide()
 
 func resume():
 	get_tree().paused = false
+	%UpgradeHint.visible = true
 	$AnimationPlayer.play_backwards("blur2")
 	hide()
 	
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("blur2")
+	%UpgradeHint.visible = false
 	show()
 
 func testTab():
