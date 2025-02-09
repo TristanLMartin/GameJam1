@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://do3gef4k6t676" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_m.png" id="8_4c57u"]
 [ext_resource type="AudioStream" uid="uid://o1tt230br1gk" path="res://Audio/full_OST_loop1.1.wav" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cc3dbm2mukjcq" path="res://satellite.tscn" id="11_efxa6"]
+[ext_resource type="AudioStream" uid="uid://cdt8yubwiucae" path="res://Audio/full_OST_loop_1.5.wav" id="10_efxa6"]
+[ext_resource type="PackedScene" path="res://satellite.tscn" id="11_efxa6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
@@ -24,6 +26,8 @@ script = ExtResource("1_ig7tw")
 [node name="ColorRect" parent="." instance=ExtResource("2_4c57u")]
 
 [node name="Planet" parent="." instance=ExtResource("2_lquwl")]
+health = 100
+multiplier_increment = 0.8
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
 

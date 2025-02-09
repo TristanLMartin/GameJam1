@@ -76,6 +76,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "x1"
 
+[node name="QuadrantTimer4" type="Timer" parent="Quadrant4"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="Quadrant1" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-202, -140)
@@ -116,6 +120,10 @@ offset_bottom = 54.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "x1"
+
+[node name="QuadrantTimer1" type="Timer" parent="Quadrant1"]
+unique_name_in_owner = true
+one_shot = true
 
 [node name="Quadrant2" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -158,6 +166,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "x1"
 
+[node name="QuadrantTimer2" type="Timer" parent="Quadrant2"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="Quadrant3" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-202, -140)
@@ -199,6 +211,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "x1"
 
+[node name="QuadrantTimer3" type="Timer" parent="Quadrant3"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="MultiplierLabel" type="Label" parent="."]
 unique_name_in_owner = true
 z_index = 3
@@ -218,3 +234,8 @@ z_index = 1
 position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(6.357, 6.357)
 texture = ExtResource("5_x32po")
+
+[connection signal="timeout" from="Quadrant4/QuadrantTimer4" to="." method="_on_quadrant_timer_timeout" binds= [3]]
+[connection signal="timeout" from="Quadrant1/QuadrantTimer1" to="." method="_on_quadrant_timer_timeout" binds= [0]]
+[connection signal="timeout" from="Quadrant2/QuadrantTimer2" to="." method="_on_quadrant_timer_timeout" binds= [1]]
+[connection signal="timeout" from="Quadrant3/QuadrantTimer3" to="." method="_on_quadrant_timer_timeout" binds= [2]]
