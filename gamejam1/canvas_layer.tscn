@@ -1,7 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=60 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://dde78gqcxje4x" path="res://Assets/Menus/UI Assets/Card X3/Card X5.png" id="4_0qrqu"]
 [ext_resource type="Texture2D" uid="uid://b5xqa1m6dxpsr" path="res://Assets/Menus/UI Assets/Button 1/Button Normal.png" id="5_5nuxi"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://bt2l5exeucb3p" path="res://start_menu.gd" id="25_07c00"]
 [ext_resource type="Texture2D" uid="uid://c5at7nrofg7aw" path="res://Assets/Menus/UI Assets/Card X1/Card X2.png" id="26_lp2dk"]
 [ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
+[ext_resource type="AudioStream" uid="uid://duv052cw5bkd5" path="res://Audio/upgrade.wav" id="28_4piyb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -1146,6 +1147,11 @@ offset_right = 772.0
 offset_bottom = 108.0
 theme_override_font_sizes/font_size = 60
 text = "Moo to Main Control"
+
+[node name="UpgradeNoise" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("28_4piyb")
 
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/MarginContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/MarginContainer2/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]

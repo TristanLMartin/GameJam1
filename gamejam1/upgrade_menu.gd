@@ -228,6 +228,7 @@ func _on_button_pressed(button):
 				main.subtract_gold(upgrade1_cost)
 				upgrade1_counter += 1
 				emit_signal("upgrade_requested", "Upgrade1")
+				%UpgradeNoise.play()
 				if upgrade1_counter == upgrade1_max:
 					button1_available = false
 		"Upgrade2":
@@ -235,15 +236,18 @@ func _on_button_pressed(button):
 				main.subtract_gold(upgrade2_cost)
 				upgrade2_counter += 1
 				emit_signal("upgrade_requested", "Upgrade2")
+				%UpgradeNoise.play()
 				if upgrade2_counter == upgrade2_max:
 					button2_available = false
 		"Upgrade3":
 			if button3_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade3_cost)
 				emit_signal("upgrade_requested", "Upgrade3")
 				button3_available = false
 		"Upgrade4":
 			if button4_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade4_cost)
 				emit_signal("upgrade_requested", "Upgrade4")
 				button4_available = false
@@ -251,6 +255,7 @@ func _on_button_pressed(button):
 				button11_available = true
 		"Upgrade5":
 			if button5_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade5_cost)
 				emit_signal("upgrade_requested", "Upgrade5")
 				button5_available = false
@@ -259,6 +264,7 @@ func _on_button_pressed(button):
 				button14_available = true
 		"Upgrade6":
 			if button6_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade6_cost)
 				emit_signal("upgrade_requested", "Upgrade6")
 				button6_available = false
@@ -266,6 +272,7 @@ func _on_button_pressed(button):
 				button17_available = true
 		"Upgrade7":
 			if upgrade7_counter < upgrade7_max and button7_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade7_cost)
 				upgrade7_counter += 1
 				emit_signal("upgrade_requested", "Upgrade7")
@@ -273,11 +280,13 @@ func _on_button_pressed(button):
 					button7_available = false
 		"Upgrade8":
 			if button8_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade8_cost)
 				emit_signal("upgrade_requested", "Upgrade8")
 				button8_available = false
 		"Upgrade9":
 			if upgrade9_counter < upgrade9_max and button9_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade9_cost)
 				upgrade9_counter += 1
 				emit_signal("upgrade_requested", "Upgrade9")
@@ -285,6 +294,7 @@ func _on_button_pressed(button):
 					button9_available = false
 		"Upgrade10":
 			if upgrade10_counter < upgrade10_max and button10_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade10_cost)
 				upgrade10_counter += 1
 				emit_signal("upgrade_requested", "Upgrade10")
@@ -292,6 +302,7 @@ func _on_button_pressed(button):
 					button10_available = false
 		"Upgrade11":
 			if upgrade11_counter < upgrade11_max and button11_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade11_cost)
 				upgrade11_counter += 1
 				emit_signal("upgrade_requested", "Upgrade11")
@@ -299,26 +310,31 @@ func _on_button_pressed(button):
 					button11_available = false
 		"Upgrade12":
 			if button12_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade12_cost)
 				emit_signal("upgrade_requested", "Upgrade12")
 				button12_available = false
 		"Upgrade13":
 			if button13_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade13_cost)
 				emit_signal("upgrade_requested", "Upgrade13")
 				button13_available = false
 		"Upgrade14":
 			if button14_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade14_cost)
 				emit_signal("upgrade_requested", "Upgrade14")
 				button14_available = false
 		"Upgrade16":
 			if button16_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade16_cost)
 				emit_signal("upgrade_requested", "Upgrade16")
 				button16_available = false
 		"Upgrade17":
 			if button17_money == true:
+				%UpgradeNoise.play()
 				main.subtract_gold(upgrade17_cost)
 				emit_signal("upgrade_requested", "Upgrade17")
 				button17_available = false

@@ -203,6 +203,7 @@ func _on_CowTimer_timeout() -> void:
 func place_cows_on_planet() -> void:
 	var quadrant = int(floor(%PathFollow2D.progress_ratio / 0.25) + 1)
 	if has_cows_unlocked == true and cow_count > 0:
+		%CowNoise.play()
 		cow_count -= 1 #Takes cows from "inventory"
 		cow_signal.emit(cows_placed, quadrant) #Sends a signal with amount of cows to place
 	
@@ -216,6 +217,7 @@ func _on_SatelliteCooldownTimer_timeout() -> void:
 	
 func place_satellite_spawn() -> void:
 	if has_satellites_unlocked == true and satellite_count > 0:
+		%SatelliteNoise.play()
 		satellite_count -= 1
 		satellite.visible = true
 		satellite_collision.disabled = false

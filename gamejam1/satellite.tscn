@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc3dbm2mukjcq"]
+[gd_scene load_steps=5 format=3 uid="uid://dv0flu7gexqw7"]
 
 [ext_resource type="Script" uid="uid://dvp78d0xqmrfj" path="res://satellite.gd" id="1_47pra"]
 [ext_resource type="Texture2D" uid="uid://duwm1hsd5ya3o" path="res://Assets/SpaceShooterRedux/PNG/ufoBlue.png" id="2_blaqe"]
