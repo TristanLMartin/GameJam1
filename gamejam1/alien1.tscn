@@ -17,15 +17,15 @@ script = ExtResource("1_5avau")
 [node name="Laser" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-0.813008, 114.024)
+position = Vector2(-0.813008, 113.821)
 scale = Vector2(0.955616, 1.32927)
 texture = ExtResource("2_wk2vo")
 
 [node name="LaserHit" type="Sprite2D" parent="Laser"]
-position = Vector2(1.70155, 51.8349)
+unique_name_in_owner = true
+position = Vector2(0.850769, 51.9877)
 rotation = -3.13824
 scale = Vector2(0.708561, 0.472714)
-skew = 0.00313723
 texture = ExtResource("3_g5epv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

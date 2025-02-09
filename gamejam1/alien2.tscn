@@ -22,6 +22,7 @@ scale = Vector2(0.955617, 1.32927)
 texture = ExtResource("2_87ewd")
 
 [node name="LaserHit" type="Sprite2D" parent="Laser"]
+unique_name_in_owner = true
 position = Vector2(1.70155, 51.8349)
 rotation = -3.13824
 scale = Vector2(0.708561, 0.472714)
