@@ -37,13 +37,16 @@ func _on_button_pressed(button):
 			emit_signal("upgrade_requested", "Upgrade2")
 		"Upgrade3":
 			emit_signal("upgrade_requested", "Upgrade3")
+			%Upgrade3.disabled = true
 		"Upgrade4":
-			print("You have cows!")
 			emit_signal("upgrade_requested", "Upgrade4")
+			%Upgrade4.disabled = true
 		"Upgrade5":
 			emit_signal("upgrade_requested", "Upgrade5")
+			%Upgrade5.disabled = true
 		"Upgrade6":
 			emit_signal("upgrade_requested", "Upgrade6")
+			%Upgrade6.disabled = true
 		"Upgrade7":
 			emit_signal("upgrade_requested", "Upgrade7")
 		"Upgrade8":
@@ -64,5 +67,7 @@ func _on_button_pressed(button):
 			emit_signal("upgrade_requested", "Upgrade15")
 		"Upgrade16":
 			emit_signal("upgrade_requested", "Upgrade16")
+			%Upgrade16.disabled = true
 		"Upgrade17":
 			emit_signal("upgrade_requested", "Upgrade17")
+			%Upgrade17.disabled = true
