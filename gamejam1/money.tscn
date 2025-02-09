@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cmxo35oh8g366" path="res://money.gd" id="1_ys01k"]
 
 [node name="Money" type="Label"]
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 100
 script = ExtResource("1_ys01k")
 
 [node name="Timer" type="Timer" parent="."]
