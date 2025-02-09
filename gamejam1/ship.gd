@@ -41,6 +41,8 @@ func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
 	laser_scene = preload("res://laser.tscn")
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
+	%LeftBooster.play()
+	%RightBooster.play()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Shoot") and has_laser == true and laser_active == false and laser_available == true:
@@ -87,6 +89,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	%LeftBooster.visible = false
+	%RightBooster.visible = false
 	var movement := 0
 	var velocity : float
 	if dashing:
@@ -95,8 +99,10 @@ func _physics_process(delta: float) -> void:
 		velocity = SPEED
 		
 	if Input.is_action_pressed("Move_Left"):
+		%LeftBooster.visible = true
 		movement -= velocity
 	if Input.is_action_pressed("Move_Right"):
+		%RightBooster.visible = true
 		movement += velocity
 	
 	path_to_follow.progress += movement
@@ -146,7 +152,7 @@ func _on_upgrade_requested(upgrade_id):
 		"Upgrade6":
 			has_research_unlocked = true
 		"Upgrade10":
-			cow_count += 1
+			cow_count = (round(cow_count * cows_placed) / (cows_placed + 1)) + 1
 			cows_placed += 1
 		"Upgrade11":
 			cow_generation_time -= 2.5
