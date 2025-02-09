@@ -11,13 +11,14 @@ func take_damage(damage : int, delta):
 	health -= damage * multiplier * delta
 	var health_bar : ProgressBar = get_node('/root/Main/CanvasLayer/PlanetHealth')
 	health_bar.value = health
-	healthLabel.text = str(health)
 	if health <= 0.0:
 		print("We're dead!")
 		PlanetDeath.emit()
 	
 
 func _physics_process(delta: float) -> void:
+	healthLabel.text = str(int(health))
+
 
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
 	
