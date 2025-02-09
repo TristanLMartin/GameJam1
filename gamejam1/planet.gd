@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+@onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
 @export var health = 100
 var multiplier = 1
 signal PlanetDeath
@@ -41,7 +42,18 @@ func _ready():
 	var ship = get_node("/root/Main/Ship")
 	ship.cow_signal.connect(_on_place_cows)
 	%PlanetHealth.max_value = health
+	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 	
 func _on_place_cows(amount):
 	cows += amount
 	print(cows)
+	
+func _on_upgrade_requested(upgrade_id):
+	match upgrade_id:
+		"Upgrade7":
+			%PlanetHealth.max_value += 50
+			health += 50
+		"Upgrade8":
+			health = %PlanetHealth.max_value
+		#"Upgrade9": multiplier resistance
+			
