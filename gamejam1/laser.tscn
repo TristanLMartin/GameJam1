@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://e3mo0coah6yh"]
 
-[ext_resource type="Script" path="res://laser.gd" id="1_6vqwg"]
+[ext_resource type="Script" uid="uid://0yq18f8dqwhl" path="res://laser.gd" id="1_6vqwg"]
 [ext_resource type="Texture2D" uid="uid://d32wwywor8w55" path="res://Assets/SpaceShooterRedux/PNG/Lasers/laserBlue14.png" id="2_g6b45"]
 [ext_resource type="AudioStream" uid="uid://coffhemu48avg" path="res://Audio/laser_beam.wav" id="3_g6b45"]
 

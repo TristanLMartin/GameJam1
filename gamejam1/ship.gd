@@ -43,7 +43,6 @@ func _ready() -> void:
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
-	print(cow_count)
 	if Input.is_action_just_pressed("Shoot") and has_laser == true and laser_active == false and laser_available == true:
 		laser()
 	elif Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped() and laser_active == false:
