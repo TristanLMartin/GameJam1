@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bxasmmjm7iry2"]
 
-[ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien1.gd" id="1_nf7cr"]
+[ext_resource type="Script" path="res://alien1.gd" id="1_5avau"]
 [ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="2_mgblm"]
 [ext_resource type="Texture2D" uid="uid://dhcsb78855ge2" path="res://Assets/UFO/PNG/laserBeige1.png" id="2_wk2vo"]
 [ext_resource type="Texture2D" uid="uid://cci8ihhovn1v1" path="res://Assets/UFO/PNG/laserBeige_burst.png" id="3_g5epv"]
@@ -12,7 +12,7 @@ radius = 66.0076
 scale = Vector2(1.23, 1.23)
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_nf7cr")
+script = ExtResource("1_5avau")
 
 [node name="Laser" type="Sprite2D" parent="."]
 unique_name_in_owner = true
