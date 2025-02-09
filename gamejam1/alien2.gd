@@ -26,10 +26,7 @@ func _planet_collision(body):
 		charging = true
 
 func on_hit() -> void:
-	health -= 1
-	#wave_spawner.alien_death.emit()
-	#queue_free()
-	
+	health -= 1	
 	if health <= 0:
 		wave_spawner.alien_death.emit()
 		main.add_gold(gold_value)
