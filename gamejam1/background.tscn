@@ -1,0 +1,252 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqowgfpledl20"]
+
+[ext_resource type="Texture2D" uid="uid://dqhvaxcr1i2ni" path="res://Assets/SimpleSpace/PNG/Default/star_large.png" id="1_oabld"]
+
+[node name="ColorRect" type="ColorRect"]
+show_behind_parent = true
+z_index = -11
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9888.0
+offset_top = -5759.0
+offset_right = 8990.0
+offset_bottom = 5777.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.123558, 0.249384, 1)
+
+[node name="LargeWhiteStars" type="Node2D" parent="."]
+position = Vector2(9891, 5784)
+
+[node name="StarLarge" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-4071, -602)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge3" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-5905, 2346)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge4" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-4180, -3686)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge5" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1733, 1333)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge6" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1728, -1341)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge10" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(777, -1042)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge11" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1089, -471)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge12" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1076, 629)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge13" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-622, -893)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge14" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1152, 330)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge15" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(275, 1335)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge16" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1728, -1341)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge17" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1908, 229)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge18" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-523, -297)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge19" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(474, -314)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge20" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2203, -892)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge21" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1848, -391)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge22" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2289, 820)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge23" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1348, -382)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge24" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-591, 825)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge25" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1934, -985)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge26" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1934, -574)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge27" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1399, -801)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge28" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1985, 376)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge29" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2207, -155)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge30" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-363, -1554)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge31" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(334, -1464)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge32" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-410, -1250)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge33" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(253, -1134)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge34" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(754, -1853)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge35" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-679, -2007)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge36" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1124, -1682)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge37" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-773, -1528)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge38" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1418, -1750)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge39" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-332, 501)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge40" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(849, 1168)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge41" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(537, 655)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge42" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1641, 1138)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge43" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1705, -1600)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge44" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2390, -1480)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge45" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2561, -753)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge46" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2300, -1078)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge47" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2082, -1874)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge48" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1470, -2011)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge49" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2655, -30)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge50" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2560, -1481)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge51" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2607, -745)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge52" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2705, -112)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge53" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1618, -886)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge54" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2833, 509)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge55" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(1879, 714)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge56" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2846, 924)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge57" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2504, 1181)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge58" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(2504, 1181)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge7" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-946, 1472)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge8" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-4071, -602)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge9" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-1224, -1172)
+texture = ExtResource("1_oabld")
+
+[node name="StarLarge2" type="Sprite2D" parent="LargeWhiteStars"]
+position = Vector2(-2551, 1214)
+texture = ExtResource("1_oabld")
