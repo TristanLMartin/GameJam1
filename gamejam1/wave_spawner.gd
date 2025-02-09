@@ -11,6 +11,7 @@ signal alien_death
 var aliens_killed_in_wave := 0
 var wave_in_progress := true #wave check
 var max_enemies = ENEMY_NUM * wave_number #scaling enemy total based on wave
+@onready var main = get_node("/root/Main")
 
 func _ready() -> void:
 	alien_death.connect(_on_alien_death)
@@ -64,6 +65,7 @@ func spawn_monster() -> void:
 func start_next_wave() -> void:
 	await get_tree().create_timer(3.0).timeout
 	wave_number += 1
+	main.wave_update()
 	aliens_killed_in_wave = 0
 	wave_in_progress = true
 	# alien_speed.emit(wave_number) #testing alien speed per wave
