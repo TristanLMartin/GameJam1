@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dphpl0yiotelo"]
+[gd_scene load_steps=5 format=3 uid="uid://dphpl0yiotelo"]
 
 [ext_resource type="Script" uid="uid://ba0iaclhkem3a" path="res://ship.gd" id="1_4cq66"]
 [ext_resource type="Texture2D" uid="uid://buyy6e6o1gtgh" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Station/spaceStation_021.png" id="2_4cq66"]
+[ext_resource type="AudioStream" uid="uid://bg3wjvl41s4n0" path="res://Audio/shoot_1.wav" id="3_v4325"]
 
 [sub_resource type="Curve2D" id="Curve2D_1bvp3"]
 _data = {
@@ -11,9 +12,6 @@ point_count = 87
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_4cq66")
-SPEED = null
-Dash_Multiplier = null
-dash_length = null
 
 [node name="Path2D" type="Path2D" parent="."]
 scale = Vector2(1.2, 1.2)
@@ -31,9 +29,15 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_4cq66")
 
 [node name="Bullet_CD" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
-autostart = true
 
 [node name="Dash_CD" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_v4325")
+
+[node name="Teleport_CD" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true

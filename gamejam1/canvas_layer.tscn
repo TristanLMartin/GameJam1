@@ -207,6 +207,7 @@ libraries = {
 }
 
 [node name="UpgradeMenu" type="Control" parent="Menus"]
+unique_name_in_owner = true
 process_mode = 3
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -307,7 +308,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+[node name="Upgrade2" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -318,7 +320,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 13
-text = "+ Weapon Damage"
+text = "+ Attack Speed"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -330,7 +332,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+[node name="Upgrade3" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -368,7 +371,8 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+[node name="Upgrade4" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -391,7 +395,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+[node name="Upgrade5" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -414,7 +419,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+[node name="Upgrade6" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -425,7 +431,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 13
-text = "Mining Facility"
+text = "Research Center"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -452,7 +458,8 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+[node name="Upgrade7" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -475,7 +482,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
+[node name="Upgrade8" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -498,7 +506,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
+[node name="Upgrade9" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -552,7 +561,8 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer"]
+[node name="Upgrade10" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -575,7 +585,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer3"]
+[node name="Upgrade11" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -613,7 +624,8 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer"]
+[node name="Upgrade12" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -636,7 +648,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer2"]
+[node name="Upgrade13" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -647,7 +660,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 13
-text = "+ Damage"
+text = "+ Fly Speed"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -659,7 +672,8 @@ texture = SubResource("PlaceholderTexture2D_37rai")
 [node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3"]
+[node name="Upgrade14" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -691,13 +705,14 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
 layout_mode = 2
-text = "Mining Facility"
+text = "Research Center"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer"]
+[node name="Upgrade15" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Buy"
@@ -717,6 +732,54 @@ layout_mode = 2
 size_flags_horizontal = 10
 texture = SubResource("PlaceholderTexture2D_37rai")
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Upgrade16" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Dash"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Upgrade17" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Buy"
+
+[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Teleport"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = SubResource("PlaceholderTexture2D_37rai")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menus/UpgradeMenu"]
 libraries = {
 &"": SubResource("AnimationLibrary_n6wdb")
@@ -725,4 +788,20 @@ libraries = {
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Quit" to="Menus/PauseMenu" method="_on_quit_pressed"]
-[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer/Upgrade1" to="Menus/UpgradeMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer/Upgrade1" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade1"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2/Upgrade2" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade2"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3/Upgrade3" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade3"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer/Upgrade4" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade4"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2/Upgrade5" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade5"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3/Upgrade6" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade6"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer/Upgrade7" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade7"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2/Upgrade8" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade8"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3/Upgrade9" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade9"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer/Upgrade10" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade10"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer3/Upgrade11" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade11"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer/Upgrade12" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade12"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer2/Upgrade13" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade13"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3/Upgrade14" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade14"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer/Upgrade15" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade15"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2/Upgrade16" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade16"]]
+[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3/Upgrade17" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade17"]]

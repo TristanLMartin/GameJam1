@@ -45,4 +45,5 @@ stream = ExtResource("6_7mycd")
 autoplay = true
 
 [node name="CowTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 10.0

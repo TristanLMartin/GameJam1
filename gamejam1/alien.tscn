@@ -8,6 +8,7 @@ radius = 66.0076
 
 [node name="Alien" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_0cgv7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,3 +17,8 @@ texture = ExtResource("1_816kv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
 shape = SubResource("CircleShape2D_0cgv7")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
