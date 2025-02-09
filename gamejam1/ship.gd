@@ -24,6 +24,8 @@ var previous_teleport_location
 @onready var dash_timer : Timer = $Dash_CD
 @onready var teleport_timer : Timer = $Teleport_CD
 @onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
+@onready var satellite = get_node("/root/Main/Satellite")
+@onready var satellite_collision = get_node("/root/Main/Satellite/Path2D/PathFollow2D/Area2D/SatelliteCollision")
 
 var bullet_scene
 var dashing : bool = false
@@ -32,7 +34,6 @@ var dash_length_timer : Timer
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
-	#$CowTimer.timeout.connect(_on_CowTimer_timeout)
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
@@ -43,12 +44,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 		
-	%SatelliteTimer.wait_time = satellite_generation_time
-	if Input.is_action_just_pressed("Satellite_Left"):
-		place_satellite_left()
-		
-	if Input.is_action_just_pressed("Satellite_Right"):
-		place_satellite_right()
+	if Input.is_action_just_pressed("Satellite_Spawn"):
+		print("clicked satellite")
+		place_satellite_spawn()
 		
 	if Input.is_action_just_pressed("Place_Research"):
 		place_research_on_planet()
@@ -115,8 +113,6 @@ func _on_upgrade_requested(upgrade_id):
 			%CowTimer.timeout.connect(_on_CowTimer_timeout)
 		"Upgrade5":
 			has_satellites_unlocked = true
-			%SatelliteTimer.start()
-			%SatelliteTimer.timeout.connect(_on_SatelliteTimer_timeout)
 		"Upgrade6":
 			has_research_unlocked = true
 		"Upgrade10":
@@ -167,16 +163,23 @@ func place_cows_on_planet() -> void:
 		cow_signal.emit(cows_placed) #Sends a signal with amount of cows to place
 	
 func _on_SatelliteTimer_timeout() -> void:
+	satellite.visible = false
+	satellite_collision.disabled = true
+	print("we made it")
+
+func _on_SatelliteCooldownTimer_timeout() -> void:
 	satellite_count += 1
 	
-func place_satellite_left() -> void:
+func place_satellite_spawn() -> void:
 	if has_satellites_unlocked == true and satellite_count > 0:
-		return
-	
-func place_satellite_right() -> void:
-	if has_satellites_unlocked == true and satellite_count > 0:
-		return
-	
+		satellite_count -= 1
+		satellite.visible = true
+		satellite_collision.disabled = false
+		print("still going")
+		%SatelliteTimer.start()
+		%SatelliteTimer.timeout.connect(_on_SatelliteTimer_timeout)
+		%SatelliteCooldownTimer.start()
+		%SatelliteCooldownTimer.timeout.connect(_on_SatelliteCooldownTimer_timeout)
 
 
 func place_research_on_planet() -> void:

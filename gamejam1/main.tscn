@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddhgt2xw7sn1v"]
+[gd_scene load_steps=14 format=3 uid="uid://ddhgt2xw7sn1v"]
 
 [ext_resource type="Script" uid="uid://exoeay3oi478" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" path="res://background.tscn" id="2_4c57u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b20mbx66o4nbk" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_l.png" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://bjc8jiy7fxjpm" path="res://Assets/Menus/PNG/Blue/Double/bar_round_large_r.png" id="7_kek77"]
 [ext_resource type="Texture2D" uid="uid://do3gef4k6t676" path="res://Assets/Menus/PNG/Blue/Double/bar_round_gloss_large_m.png" id="8_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cc3dbm2mukjcq" path="res://satellite.tscn" id="11_efxa6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
@@ -86,6 +87,12 @@ wait_time = 10.0
 
 [node name="SatelliteTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 20.0
+wait_time = 5.0
+
+[node name="SatelliteCooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+
+[node name="Satellite" parent="." instance=ExtResource("11_efxa6")]
 
 [connection signal="PlanetDeath" from="Planet" to="." method="_on_planet_planet_death"]
