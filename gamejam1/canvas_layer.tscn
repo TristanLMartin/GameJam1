@@ -344,7 +344,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 13
-text = "Upgrade Weapon"
+text = "Laser"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -713,31 +713,6 @@ layout_mode = 2
 text = "Research Center"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
-layout_mode = 2
-
-[node name="Upgrade15" type="Button" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 2
-disabled = true
-text = "Buy"
-
-[node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(170, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 13
-text = "+ Income"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-texture = SubResource("PlaceholderTexture2D_37rai")
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
 layout_mode = 2
 
@@ -810,6 +785,5 @@ libraries = {
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer/Upgrade12" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade12"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer2/Upgrade13" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade13"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3/Upgrade14" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade14"]]
-[connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer/Upgrade15" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade15"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2/Upgrade16" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade16"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3/Upgrade17" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade17"]]

@@ -15,6 +15,7 @@ signal research_signal(amount)
 @export var cow_generation_time = 10.0
 @export var has_satellites_unlocked = false
 @export var satellite_count = 1
+@export var satellite_life = 5.0
 @export var satellite_generation_time = 20.0
 @export var has_research_unlocked = false
 @export var research_count = 1
@@ -47,7 +48,6 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped() and laser_active == false:
 		shoot()
 		
-	%CowTimer.wait_time = cow_generation_time
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 		
@@ -150,6 +150,13 @@ func _on_upgrade_requested(upgrade_id):
 			cows_placed += 1
 		"Upgrade11":
 			cow_generation_time -= 2.5
+			%CowTimer.wait_time = cow_generation_time
+		"Upgrade12":
+			satellite_life += 2.5
+			%SatelliteTimer.wait_time = satellite_life
+		"Upgrade14":
+			satellite_generation_time -= 5.0
+			%SatelliteCooldownTimer.wait_time = satellite_generation_time
 		"Upgrade16":
 			has_dash_unlocked = true
 		"Upgrade17":
