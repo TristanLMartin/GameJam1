@@ -1,7 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=59 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://dde78gqcxje4x" path="res://Assets/Menus/UI Assets/Card X3/Card X5.png" id="4_0qrqu"]
 [ext_resource type="Texture2D" uid="uid://b5xqa1m6dxpsr" path="res://Assets/Menus/UI Assets/Button 1/Button Normal.png" id="5_5nuxi"]
@@ -25,10 +25,41 @@
 [ext_resource type="Texture2D" uid="uid://c7x33f15jkjd8" path="res://Assets/Menus/UI Assets/IconsWenrexa2/09.png" id="19_qn1ce"]
 [ext_resource type="Texture2D" uid="uid://bs3tmg2c1muhx" path="res://Assets/Menus/UI Assets/IconsWenrexa/32.png" id="20_31fxs"]
 [ext_resource type="Script" uid="uid://bt2l5exeucb3p" path="res://start_menu.gd" id="25_07c00"]
+[ext_resource type="Texture2D" uid="uid://c5at7nrofg7aw" path="res://Assets/Menus/UI Assets/Card X1/Card X2.png" id="26_lp2dk"]
+[ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
 shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07c00"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lp2dk"]
+texture = ExtResource("6_07c00")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_54dv3"]
+texture = ExtResource("7_lp2dk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uc0vg"]
+texture = ExtResource("5_5nuxi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lljfd"]
+texture = ExtResource("6_07c00")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qn1ce"]
+texture = ExtResource("7_lp2dk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31fxs"]
+texture = ExtResource("5_5nuxi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k178u"]
+texture = ExtResource("6_07c00")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_af0nv"]
+texture = ExtResource("7_lp2dk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpy4e"]
+texture = ExtResource("5_5nuxi")
 
 [sub_resource type="Animation" id="Animation_mx0kw"]
 length = 0.001
@@ -166,6 +197,30 @@ _data = {
 &"blur2": SubResource("Animation_fsbdh")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lp2dk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_07c00"]
+texture = ExtResource("6_07c00")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m85tg"]
+texture = ExtResource("7_lp2dk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdnx8"]
+texture = ExtResource("5_5nuxi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6o4a1"]
+texture = ExtResource("6_07c00")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0bbu"]
+texture = ExtResource("7_lp2dk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x0op4"]
+texture = ExtResource("5_5nuxi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_86krf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4piyb"]
+
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Menus" type="Control" parent="."]
@@ -181,6 +236,7 @@ size_flags_vertical = 4
 
 [node name="PauseMenu" type="Control" parent="Menus"]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -212,26 +268,45 @@ offset_right = 100.5
 offset_bottom = 119.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_07c00")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menus/PauseMenu/PanelContainer"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Resume" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+focus_mode = 0
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_lp2dk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_54dv3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uc0vg")
 text = "Resume
 "
 
-[node name="Restart" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Restart" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_lljfd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qn1ce")
+theme_override_styles/normal = SubResource("StyleBoxTexture_31fxs")
 text = "Restart"
 
 [node name="Quit" type="Button" parent="Menus/PauseMenu/PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_k178u")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_af0nv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rpy4e")
 text = "Quit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menus/PauseMenu"]
@@ -242,6 +317,7 @@ libraries = {
 [node name="UpgradeMenu" type="Control" parent="Menus"]
 unique_name_in_owner = true
 process_mode = 3
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -946,24 +1022,134 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.196078)
 
-[node name="Button" type="Button" parent="Menus/StartMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -121.0
-offset_top = -72.0
-offset_right = 122.0
-offset_bottom = 73.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="Menus/StartMenu"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 339.0
+offset_right = 606.0
+offset_bottom = 573.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lp2dk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/StartMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus/StartMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(264, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_07c00")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m85tg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gdnx8")
 text = "Start
 "
 
-[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
-[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
+[node name="Button" type="Button" parent="Menus/StartMenu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(264, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_6o4a1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q0bbu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x0op4")
+text = "Quit"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Menus/StartMenu"]
+layout_mode = 0
+offset_left = 1353.0
+offset_top = 139.0
+offset_right = 1700.0
+offset_bottom = 877.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_86krf")
+
+[node name="TextureRect" type="TextureRect" parent="Menus/StartMenu/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("26_lp2dk")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/StartMenu/PanelContainer2/TextureRect"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 31.0
+offset_right = 310.0
+offset_bottom = 704.0
+
+[node name="Label" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Welcome to Moo to Main Control. You
+are our last line of defense against the
+alien invasion.
+
+"
+
+[node name="Label2" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Goals"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Keep Earth from dying.
+Survive alien waves.
+"
+
+[node name="Label4" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Multiplier"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Earth is split into four quadrants. The 
+more quadrants that are under attack, 
+the more damage the aliens will do.
+"
+
+[node name="Label6" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "\"A\" - Rotate counterclockwise
+\"D\" - Rotate clockwise
+\"Space\" - Shoot
+\"Tab\" - Upgrade Menu
+
+Unlockables:
+\"S\" - Place Guardian Cow
+\"E\" - Summon Satellite Defender
+\"Shift\" - Dash
+\"CTRL\" - Teleport"
+
+[node name="PanelContainer3" type="PanelContainer" parent="Menus/StartMenu"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 49.0
+offset_right = 1276.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4piyb")
+
+[node name="TextureRect" type="TextureRect" parent="Menus/StartMenu/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("27_apljm")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Menus/StartMenu/PanelContainer3/TextureRect"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 25.0
+offset_right = 772.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 60
+text = "Moo to Main Control"
+
+[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/MarginContainer/Resume" to="Menus/PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/MarginContainer2/Restart" to="Menus/PauseMenu" method="_on_restart_pressed"]
 [connection signal="pressed" from="Menus/PauseMenu/PanelContainer/VBoxContainer/Quit" to="Menus/PauseMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer/Upgrade1" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade1"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2/Upgrade2" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade2"]]
@@ -981,4 +1167,5 @@ text = "Start
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3/Upgrade14" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade14"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2/Upgrade16" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade16"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3/Upgrade17" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade17"]]
-[connection signal="pressed" from="Menus/StartMenu/Button" to="Menus/StartMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer/Button" to="Menus/StartMenu" method="_on_button_pressed"]
+[connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/Button" to="Menus/StartMenu" method="_on_quit_pressed"]
