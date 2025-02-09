@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 				current_multiplier = 1
 				total_damage += bodies.size()
 		multiplier += current_multiplier
-	multiplier = max(multiplier - multiplier_resistance, 0)
+	multiplier = max(multiplier - multiplier_resistance, 1)
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
 	take_damage(total_damage, delta)
