@@ -13,12 +13,12 @@ var dash_length_timer : Timer
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
-	$CowTimer.timeout.connect(_on_CowTimer_timeout)
+	#$CowTimer.timeout.connect(_on_CowTimer_timeout)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
 		shoot()
-	$CowTimer.wait_time = cow_generation_time
+	#$CowTimer.wait_time = cow_generation_time
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 	
@@ -51,8 +51,7 @@ func shoot() -> void:
 	bullet_instance.global_position = %PathFollow2D.global_position * 1.2
 	add_child(bullet_instance)
 
-<<<<<<< HEAD
-=======
+
 
 func dash() -> void:
 	dashing = true
