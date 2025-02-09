@@ -2,6 +2,12 @@ extends Control
 
 signal upgrade_requested(upgrade_id)
 
+@export var upgrade1_counter = 0
+@export var upgrade1_max = 3
+@export var upgrade2_counter = 0
+@export var upgrade2_max = 3
+
+
 func _ready():
 	$AnimationPlayer.play("RESET")
 	hide()
@@ -32,9 +38,17 @@ func _process(delta):
 func _on_button_pressed(button):
 	match button:
 		"Upgrade1":
-			emit_signal("upgrade_requested", "Upgrade1")
+			if upgrade1_counter < upgrade1_max:
+				upgrade1_counter += 1
+				emit_signal("upgrade_requested", "Upgrade1")
+				if upgrade1_counter == upgrade1_max:
+					%Upgrade1.disabled = true
 		"Upgrade2":
-			emit_signal("upgrade_requested", "Upgrade2")
+			if upgrade2_counter < upgrade2_max:
+				upgrade2_counter += 1
+				emit_signal("upgrade_requested", "Upgrade2")
+				if upgrade2_counter == upgrade2_max:
+					%Upgrade2.disabled = true
 		"Upgrade3":
 			emit_signal("upgrade_requested", "Upgrade3")
 			%Upgrade3.disabled = true

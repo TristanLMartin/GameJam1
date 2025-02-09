@@ -29,9 +29,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_4cq66")
 
 [node name="Bullet_CD" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
-autostart = true
 
 [node name="Dash_CD" type="Timer" parent="."]
 one_shot = true
