@@ -20,6 +20,8 @@ func take_damage(damage : int, delta):
 
 func _physics_process(delta: float) -> void:
 	healthLabel.text = str(int(health))
+	
+
 
 
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
@@ -32,13 +34,23 @@ func _physics_process(delta: float) -> void:
 		for body in bodies:
 			PlanetCollision.emit(body)
 			if body.attacking:
+				var damage_done = 1
+				if body.alien_type == 3:
+					damage_done = 3
+				if body.alien_type == 1:
+					damage_done = 1
+				if body.alien_type == 2:
+					damage_done = 1
+					print("damage done ", damage_done)
+				print("attacking")
 				current_multiplier = 1
-				total_damage += bodies.size()
+				total_damage += damage_done
 		multiplier += current_multiplier
 	multiplier = max(multiplier - multiplier_resistance, 1)
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
 	take_damage(total_damage, delta)
+	
 
 
 var cows = 0
