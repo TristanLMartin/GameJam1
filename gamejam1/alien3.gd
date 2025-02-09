@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var wave_spawner = get_node('/root/Main/WaveSpawner')
 @onready var alien_deat_animation : PackedScene = preload("res://alien_death.tscn")
 @onready var main = get_node('/root/Main')
+@onready var money_label = preload("res://money.tscn")
 @export var gold_value : int = 10
 var attacking = false
 var charging = false
@@ -47,6 +48,11 @@ func on_hit() -> void:
 	var death_animation = alien_deat_animation.instantiate()
 	death_animation.global_position = global_position
 	death_animation.play()
+	var money_label_instance = money_label.instantiate()
+	money_label_instance.value = gold_value
+	money_label_instance.global_position = global_position
+	death_animation.global_position = global_position
+	get_parent().add_child(money_label_instance)
 	get_parent().add_child(death_animation)
 	queue_free()
 

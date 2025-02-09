@@ -43,6 +43,5 @@ unique_name_in_owner = true
 [node name="Trail" parent="." instance=ExtResource("5_1xyp2")]
 position = Vector2(1.25, -75)
 rotation = 3.14121
-scale = Vector2(1, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

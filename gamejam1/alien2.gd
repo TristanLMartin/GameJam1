@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var main = get_node('/root/Main')
 @onready var alien_deat_animation : PackedScene = preload("res://alien_death.tscn")
 @export var gold_value : int = 15
+@onready var money_label = preload("res://money.tscn")
 var attacking = false
 var charging = false
 var health : int = 2
@@ -50,7 +51,11 @@ func on_hit() -> void:
 		main.add_gold(gold_value)
 		var death_animation = alien_deat_animation.instantiate()
 		death_animation.global_position = global_position
-
+		var money_label_instance = money_label.instantiate()
+		money_label_instance.value = gold_value
+		money_label_instance.global_position = global_position
+		death_animation.global_position = global_position
+		get_parent().add_child(money_label_instance)
 		death_animation.play()
 		get_parent().add_child(death_animation)
 		queue_free()
