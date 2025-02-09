@@ -102,11 +102,10 @@ wait_time = 5.0
 
 [node name="SatelliteCooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 20.0
 
 [node name="LaserActive" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
 one_shot = true
 
 [node name="LaserCooldown" type="Timer" parent="."]
