@@ -16,6 +16,9 @@ func add_gold(gold) -> void:
 	gold_total += gold
 	gold_label.text = str('Gold: ', gold_total)
 	
+func subtract_gold(gold) -> void:
+	gold_total -= gold
+	gold_label.text = str('Gold: ', gold_total)
 
 func _on_planet_planet_death() -> void:
 	print("this is the main script confirming death!")
