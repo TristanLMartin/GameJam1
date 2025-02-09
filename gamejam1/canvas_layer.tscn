@@ -317,7 +317,6 @@ libraries = {
 [node name="UpgradeMenu" type="Control" parent="Menus"]
 unique_name_in_owner = true
 process_mode = 3
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
