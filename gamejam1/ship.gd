@@ -7,7 +7,6 @@ signal cow_signal(amount)
 @export var dash_length : float = .2
 @export var has_cows_unlocked = false #If you have the upgrade or not
 @export var cow_count = 1 #How many cows you have in your "inventory"
-#We need to resolve when cow_count isn't a denomination of cows_placed (when the upgrade is bought)
 @export var cows_placed = 1 #How many cows you place per press
 @export var cow_generation_time = 10.0
 @export var has_satellites_unlocked = false
@@ -84,6 +83,10 @@ func _on_upgrade_requested(upgrade_id):
 			%CowTimer.timeout.connect(_on_CowTimer_timeout)
 		"Upgrade5":
 			has_satellites_unlocked = true
+		"Upgrade10":
+			cow_count += 1
+		"Upgrade11":
+			cow_generation_time -= 2.5
 		"Upgrade16":
 			has_dash_unlocked = true
 		"Upgrade17":
