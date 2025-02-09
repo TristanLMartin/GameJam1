@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
 	
+	var is_attacked = [false, false, false, false]
+	
 	multiplier = 0
 	var total_damage = 0
 	for quadrant in quadrants:
@@ -33,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		for body in bodies:
 			PlanetCollision.emit(body)
 			if body.attacking:
+				is_attacked[quadrant.quadrant] = true
 				var damage_done = 1
 				if body.alien_type == 3:
 					damage_done = 3
@@ -42,6 +45,15 @@ func _physics_process(delta: float) -> void:
 	multiplier = max(multiplier - multiplier_resistance, 1)
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
+	for n in range(0, 4):
+		if n == 0:
+			%Quadrant1.light.visible = is_attacked[n]
+		if n == 1:
+			%Quadrant2.light.visible = is_attacked[n]
+		if n == 2:
+			%Quadrant3.light.visible = is_attacked[n]
+		if n == 3:
+			%Quadrant4.light.visible = is_attacked[n]
 	take_damage(total_damage, delta)
 	
 
