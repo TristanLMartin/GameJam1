@@ -398,8 +398,8 @@ layout_mode = 2
 [node name="MarginSpaceStation" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation"]
 layout_mode = 2
@@ -509,8 +509,8 @@ expand_mode = 2
 [node name="MarginDeployables" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables"]
 layout_mode = 2
@@ -620,8 +620,8 @@ expand_mode = 3
 [node name="MarginSystems" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems"]
 layout_mode = 2
@@ -942,7 +942,6 @@ theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3"]
 layout_mode = 2
