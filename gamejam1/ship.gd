@@ -17,6 +17,7 @@ signal research_signal(amount)
 @export var research_count = 1
 @export var has_dash_unlocked = false
 @export var has_teleport_unlocked = false
+var teleporting = false
 @onready var path_to_follow : PathFollow2D = %PathFollow2D
 @onready var bullet_timer : Timer = $Bullet_CD
 @onready var dash_timer : Timer = $Dash_CD
@@ -53,6 +54,15 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Teleport") and teleport_timer.is_stopped():
 			print("teleport")
 			teleport()
+	
+	if teleporting:
+		%TeleportAnimation.scale.x += 0.01
+		%TeleportAnimation.scale.y += 0.01
+		if %TeleportAnimation.scale.x >= 0.6:
+			teleporting = false
+			%TeleportAnimation.scale.x = 0
+			%TeleportAnimation.scale.y = 0
+		
 
 
 func _physics_process(delta: float) -> void:
@@ -120,6 +130,7 @@ func _on_timer_timeout_dash_length() -> void:
 	
 
 func teleport() -> void:
+	teleporting = true
 	teleport_timer.start()
 	if path_to_follow.progress_ratio <= .5:
 		path_to_follow.progress_ratio += .5
