@@ -1,16 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc3dbm2mukjcq"]
+[gd_scene load_steps=5 format=3 uid="uid://cc3dbm2mukjcq"]
 
 [ext_resource type="Script" uid="uid://dvp78d0xqmrfj" path="res://satellite.gd" id="1_47pra"]
 [ext_resource type="Texture2D" uid="uid://duwm1hsd5ya3o" path="res://Assets/SpaceShooterRedux/PNG/ufoBlue.png" id="2_blaqe"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tyeb2"]
-radius = 49.0
+[sub_resource type="Curve2D" id="Curve2D_47pra"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 42.5105, -390.423, 0, 0, 0, 0, 67.9979, -389.478, 0, 0, 0, 0, 96.4262, -381.916, 0, 0, 0, 0, 126.815, -375.299, 0, 0, 0, 0, 159.165, -363.956, 0, 0, 0, 0, 196.415, -349.776, 0, 0, 0, 0, 225.824, -332.762, 0, 0, 0, 0, 255.233, -316.692, 0, 0, 0, 0, 278.76, -298.732, 0, 0, 0, 0, 298.365, -278.881, 0, 0, 0, 0, 317.971, -259.031, 0, 0, 0, 0, 338.557, -234.454, 0, 0, 0, 0, 356.202, -211.767, 0, 0, 0, 0, 369.926, -185.3, 0, 0, 0, 0, 383.65, -158.832, 0, 0, 0, 0, 394.433, -132.365, 0, 0, 0, 0, 402.276, -104.952, 0, 0, 0, 0, 410.118, -75.6488, 0, 0, 0, 0, 416, -47.2908, 0, 0, 0, 0, 418.941, -11.3706, 0, 0, 0, 0, 417.96, 8.48001, 0, 0, 0, 0, 414.039, 27.3854, 0, 0, 0, 0, 413.059, 56.6887, 0, 0, 0, 0, 406.197, 84.1014, 0, 0, 0, 0, 398.355, 115.295, 0, 0, 0, 0, 388.552, 139.872, 0, 0, 0, 0, 376.788, 164.449, 0, 0, 0, 0, 357.183, 197.534, 0, 0, 0, 0, 340.518, 224.001, 0, 0, 0, 0, 319.932, 249.523, 0, 0, 0, 0, 295.424, 275.046, 0, 0, 0, 0, 272.878, 292.06, 0, 0, 0, 0, 249.351, 310.02, 0, 0, 0, 0, 227.785, 326.09, 0, 0, 0, 0, 212.1, 335.543, 0, 0, 0, 0, 186.613, 347.831, 0, 0, 0, 0, 163.086, 357.284, 0, 0, 0, 0, 140.539, 363.901, 0, 0, 0, 0, 117.993, 371.463, 0, 0, 0, 0, 91.5248, 377.134, 0, 0, 0, 0, 70.9388, 379.97, 0, 0, 0, 0, 47.4119, 381.861, 0, 0, 0, 0, 31.7273, 383.751, 0, 0, 0, 0, 14.0821, 382.806, 0, 0, 0, 0, -12.3856, 382.806, 0, 0, 0, 0, -39.8336, 379.97, 0, 0, 0, 0, -67.2817, 376.189, 0, 0, 0, 0, -94.7297, 367.682, 0, 0, 0, 0, -120.217, 359.174, 0, 0, 0, 0, -144.724, 350.667, 0, 0, 0, 0, -175.113, 337.433, 0, 0, 0, 0, -203.542, 321.364, 0, 0, 0, 0, -229.029, 304.349, 0, 0, 0, 0, -249.615, 287.334, 0, 0, 0, 0, -270.201, 267.483, 0, 0, 0, 0, -290.787, 243.852, 0, 0, 0, 0, -310.393, 220.22, 0, 0, 0, 0, -331.959, 189.026, 0, 0, 0, 0, -348.624, 160.668, 0, 0, 0, 0, -363.328, 122.857, 0, 0, 0, 0, -372.151, 85.992, 0, 0, 0, 0, -379.013, 57.6339, 0, 0, 0, 0, -384.895, 33.057, 0, 0, 0, 0, -386.855, 16.9874, 0, 0, 0, 0, -387.836, 0.917877, 0, 0, 0, 0, -385.875, -22.7138, 0, 0, 0, 0, -382.934, -50.1266, 0, 0, 0, 0, -379.993, -78.4846, 0, 0, 0, 0, -372.151, -109.678, 0, 0, 0, 0, -361.368, -141.818, 0, 0, 0, 0, -347.644, -170.176, 0, 0, 0, 0, -331.959, -197.588, 0, 0, 0, 0, -314.314, -225.001, 0, 0, 0, 0, -290.787, -254.304, 0, 0, 0, 0, -264.319, -279.827, 0, 0, 0, 0, -236.871, -304.404, 0, 0, 0, 0, -211.384, -324.254, 0, 0, 0, 0, -182.956, -341.269, 0, 0, 0, 0, -151.586, -355.448, 0, 0, 0, 0, -121.197, -366.791, 0, 0, 0, 0, -88.848, -376.244, 0, 0, 0, 0, -61.4, -384.751, 0, 0, 0, 0, -34.9322, -388.532, 0, 0, 0, 0, -12.3856, -389.478, 0, 0, 0, 0, -1.60245, -390.423, 0, 0, 0, 0, 9.18069, -390.423, 0, 0, 0, 0, 42.5105, -389.478)
+}
+point_count = 87
 
-[node name="Satellite" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6chu2"]
+radius = 47.2584
+
+[node name="Satellite" type="Node2D"]
+visible = false
 script = ExtResource("1_47pra")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-23.3437, 5.97272)
+scale = Vector2(1.46881, 1.49062)
+curve = SubResource("Curve2D_47pra")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(68.97, -389.281)
+rotation = 0.0875186
+progress = 26.5453
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-34.6802, 393.82)
+rotation = -0.0875186
+scale = Vector2(1, 1)
+collision_layer = 6
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(68.97, -389.281)
+rotation = 0.0875186
+scale = Vector2(1, 1)
 texture = ExtResource("2_blaqe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_tyeb2")
+[node name="SatelliteCollision" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+unique_name_in_owner = true
+position = Vector2(68.97, -389.281)
+rotation = 0.0875186
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_6chu2")
+disabled = true
+
+[connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]
