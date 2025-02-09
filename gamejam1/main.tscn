@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://c87mw2867kkft" path="res://cd_circle.tscn" id="10_dg77c"]
 [ext_resource type="AudioStream" uid="uid://cdt8yubwiucae" path="res://Audio/full_OST_loop_1.5.wav" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dv0flu7gexqw7" path="res://satellite.tscn" id="11_efxa6"]
-[ext_resource type="PackedScene" path="res://satellite.tscn" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://b82k22yvufvgq" path="res://cd_circle_tele.gd" id="11_ycdy4"]
 [ext_resource type="Script" uid="uid://c6ht8ise1p3xx" path="res://cd_circle_satellite.gd" id="12_vivmo"]
 [ext_resource type="Script" uid="uid://utxkpyw3jpbx" path="res://cd_circle_cow.gd" id="13_2cqfq"]
@@ -88,7 +87,7 @@ offset_right = 365.0
 offset_bottom = 137.0
 theme_override_colors/font_color = Color(0.285791, 0.222658, 0.0527675, 1)
 theme_override_colors/font_outline_color = Color(0.0501604, 1.03827e-05, 5.69221e-06, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "Gold: 0"
 
 [node name="Wave" type="Label" parent="CanvasLayer"]
@@ -99,6 +98,7 @@ offset_right = 1794.0
 offset_bottom = 71.0
 theme_override_font_sizes/font_size = 50
 text = "Wave: 1"
+
 [node name="CD_Teleport" parent="CanvasLayer" instance=ExtResource("10_dg77c")]
 unique_name_in_owner = true
 offset_left = 100.0
@@ -139,6 +139,7 @@ wait_time = 5.0
 [node name="SatelliteCooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 20.0
+one_shot = true
 
 [node name="LaserActive" type="Timer" parent="."]
 unique_name_in_owner = true
