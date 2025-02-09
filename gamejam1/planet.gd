@@ -21,7 +21,6 @@ func take_damage(damage : int, delta):
 func _physics_process(delta: float) -> void:
 	healthLabel.text = str(int(health))
 
-
 	var quadrants = [%Quadrant1, %Quadrant2, %Quadrant3, %Quadrant4]
 	
 	multiplier = 0
