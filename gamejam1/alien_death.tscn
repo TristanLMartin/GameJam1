@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0tkrlxvm8cfy"]
+
+[ext_resource type="Texture2D" uid="uid://vpfajwbhdw8m" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Effects/spaceEffects_008.png" id="1_lxgmn"]
+[ext_resource type="Texture2D" uid="uid://b4ro75gug8e5b" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Effects/spaceEffects_010.png" id="2_sh2kn"]
+[ext_resource type="Texture2D" uid="uid://bxivy5cia0p1b" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Effects/spaceEffects_011.png" id="3_xud1i"]
+[ext_resource type="Texture2D" uid="uid://rh6n4l8vtcrd" path="res://Assets/SpaceShooterExtension/PNG/Sprites/Effects/spaceEffects_012.png" id="4_8j8js"]
+[ext_resource type="Script" uid="uid://sgde815nqamb" path="res://alien_death.gd" id="5_sh2kn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2s3by"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lxgmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sh2kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xud1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8j8js")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+z_index = 3
+scale = Vector2(3.47726, 3.10372)
+sprite_frames = SubResource("SpriteFrames_2s3by")
+frame_progress = 0.649913
+script = ExtResource("5_sh2kn")
