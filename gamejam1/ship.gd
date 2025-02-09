@@ -29,7 +29,6 @@ func _ready() -> void:
 	upgrade_menu.connect("upgrade_requested", _on_upgrade_requested)
 
 func _process(delta: float) -> void:
-	print(cow_count)
 	if Input.is_action_just_pressed("Shoot") and bullet_timer.is_stopped():
 		shoot()
 	#$CowTimer.wait_time = cow_generation_time

@@ -8,6 +8,8 @@ signal upgrade_requested(upgrade_id)
 @export var upgrade2_max = 3
 @export var upgrade7_counter = 0
 @export var upgrade7_max = 4
+@export var upgrade9_counter = 0
+@export var upgrade9_max = 2
 @export var upgrade10_counter = 0
 @export var upgrade10_max = 2
 @export var upgrade11_counter = 0
@@ -85,7 +87,11 @@ func _on_button_pressed(button):
 			emit_signal("upgrade_requested", "Upgrade8")
 			%Upgrade8.disabled = true
 		"Upgrade9":
-			emit_signal("upgrade_requested", "Upgrade9")
+			if upgrade9_counter < upgrade9_max:
+				upgrade9_counter += 1
+				emit_signal("upgrade_requested", "Upgrade9")
+				if upgrade9_counter == upgrade9_max:
+					%Upgrade9.disabled = true
 		"Upgrade10":
 			if upgrade10_counter < upgrade10_max:
 				upgrade10_counter += 1
