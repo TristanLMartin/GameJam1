@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://dde78gqcxje4x" path="res://Assets/Menus/UI Assets/Card X3/Card X5.png" id="4_0qrqu"]
 [ext_resource type="Texture2D" uid="uid://b5xqa1m6dxpsr" path="res://Assets/Menus/UI Assets/Button 1/Button Normal.png" id="5_5nuxi"]
@@ -332,7 +332,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
@@ -364,7 +364,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
@@ -396,7 +396,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
@@ -443,7 +443,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
@@ -475,7 +475,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
@@ -507,7 +507,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
@@ -554,7 +554,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
@@ -586,7 +586,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
@@ -618,7 +618,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
@@ -638,7 +638,7 @@ expand_mode = 3
 
 [node name="DeployableUpgradesText" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL"]
 layout_mode = 2
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/DeployableUpgradesText"]
@@ -655,8 +655,8 @@ layout_mode = 2
 [node name="MarginGuardianCows" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows"]
 layout_mode = 2
@@ -681,7 +681,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
@@ -713,7 +713,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginGuardianCows/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
@@ -734,8 +734,8 @@ expand_mode = 3
 [node name="MarginSatelliteDefenders" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders"]
 layout_mode = 2
@@ -760,7 +760,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(170, 0)
@@ -792,7 +792,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
@@ -824,7 +824,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginSatelliteDefenders/VBoxContainer2/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
@@ -845,8 +845,8 @@ expand_mode = 3
 [node name="MarginMiningFacility" type="MarginContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility"]
 layout_mode = 2
@@ -871,7 +871,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2"]
 custom_minimum_size = Vector2(170, 0)
@@ -903,7 +903,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_4piyb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h8evs")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t1ebt")
 disabled = true
-text = "Buy "
+text = "Buy $xx"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3"]
 custom_minimum_size = Vector2(170, 0)
