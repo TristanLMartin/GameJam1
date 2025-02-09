@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var planet : Node2D = get_node("/root/Main/Planet")
 @onready var wave_spawner = get_node('/root/Main/WaveSpawner')
+@onready var main = get_node('/root/Main')
+@export var gold_value : int = 10
 var attacking = false
 var charging = false
 
@@ -21,6 +23,7 @@ func _planet_collision(body):
 
 func on_hit() -> void:
 	wave_spawner.alien_death.emit()
+	main.add_gold(gold_value)
 	queue_free()
 
 

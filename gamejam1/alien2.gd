@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var planet : Node2D = get_node("/root/Main/Planet")
 @onready var wave_spawner = get_node('/root/Main/WaveSpawner')
+@onready var main = get_node('/root/Main')
+@export var gold_value : int = 15
 var attacking = false
 var charging = false
 var health : int = 2
@@ -27,6 +29,7 @@ func on_hit() -> void:
 	
 	if health <= 0:
 		wave_spawner.alien_death.emit()
+		main.add_gold(gold_value)
 		queue_free()
 
 
