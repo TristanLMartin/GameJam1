@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 		for body in bodies:
 			PlanetCollision.emit(body)
 			if body.attacking:
-				print("attacking")
 				current_multiplier = 1
 				total_damage += bodies.size()
 		multiplier += current_multiplier
