@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
@@ -217,7 +217,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_37rai")
-upgrade1_cost = 20
 
 [node name="ColorRect" type="ColorRect" parent="Menus/UpgradeMenu"]
 material = SubResource("ShaderMaterial_37rai")
@@ -289,6 +288,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer"]
@@ -313,6 +313,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer2"]
@@ -337,6 +338,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSpaceStation/VBoxContainer/HBoxContainer3"]
@@ -376,6 +378,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer"]
@@ -400,6 +403,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer2"]
@@ -424,6 +428,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginDeployables/VBoxContainer2/HBoxContainer3"]
@@ -463,6 +468,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer"]
@@ -487,6 +493,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer2"]
@@ -511,6 +518,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
+disabled = true
 text = "Buy"
 
 [node name="Label" type="Label" parent="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesFirstSection/MarginSystems/VBoxContainer3/HBoxContainer3"]
