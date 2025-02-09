@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien1.gd" id="1_nf7cr"]
 [ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="2_mgblm"]
-[ext_resource type="Script" uid="uid://npy2gaovnsnw" path="res://alien.gd" id="1_0cgv7"]
-[ext_resource type="Texture2D" uid="uid://bkmq8wdn5beiv" path="res://Assets/UFO/PNG/shipBeige_manned.png" id="1_816kv"]
 [ext_resource type="Texture2D" uid="uid://dhcsb78855ge2" path="res://Assets/UFO/PNG/laserBeige1.png" id="2_wk2vo"]
 [ext_resource type="Texture2D" uid="uid://cci8ihhovn1v1" path="res://Assets/UFO/PNG/laserBeige_burst.png" id="3_g5epv"]
 
