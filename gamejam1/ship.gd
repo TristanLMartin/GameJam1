@@ -6,12 +6,13 @@ extends Node2D
 @onready var path_to_follow : PathFollow2D = %PathFollow2D
 @onready var bullet_timer : Timer = $Bullet_CD
 @onready var dash_timer : Timer = $Dash_CD
+@onready var teleport_timer : Timer = $Teleport_CD
 @onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
-
 
 var bullet_scene
 var dashing : bool = false
 var dash_length_timer : Timer
+
 
 func _ready() -> void:
 	bullet_scene = preload("res://bullet.tscn")
@@ -24,12 +25,14 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Place_Cow"):
 		place_cows_on_planet()
 	
-	
 	if Input.is_action_just_pressed("Dash") and dash_timer.is_stopped():
 		print("dash")
 		dash()
-		
 	
+	if Input.is_action_just_pressed("Teleport") and teleport_timer.is_stopped():
+		print("teleport")
+		teleport()
+
 
 func _physics_process(delta: float) -> void:
 	var movement := 0
@@ -46,12 +49,14 @@ func _physics_process(delta: float) -> void:
 	
 	path_to_follow.progress += movement
 
+
 func shoot() -> void:
 	bullet_timer.start()
 	var bullet_instance = bullet_scene.instantiate()
 	bullet_instance.global_rotation = %PathFollow2D.global_rotation
 	bullet_instance.global_position = %PathFollow2D.global_position * 1.2
 	add_child(bullet_instance)
+	%ShootSound.play()
 
 func _on_upgrade_requested(upgrade_id):
 	match upgrade_id:
@@ -77,6 +82,14 @@ func dash() -> void:
 
 func _on_timer_timeout_dash_length() -> void:
 	dashing = false
+	
+
+func teleport() -> void:
+	teleport_timer.start()
+	if path_to_follow.progress_ratio <= .5:
+		path_to_follow.progress_ratio += .5
+	else:
+		path_to_follow.progress_ratio -= .5
 
 
 @export var has_cows_unlocked = false #If you have the upgrade or not

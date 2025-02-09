@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dphpl0yiotelo" path="res://ship.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://e3eachgvj0rt" path="res://canvas_layer.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://barduwwgb604l" path="res://wave_spawner.tscn" id="5_lquwl"]
-[ext_resource type="AudioStream" uid="uid://v24o4jodtrux" path="res://Audio/SPACESTORM_OST_1.1.wav" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://u452dl2gipw2" path="res://Audio/darude_spacestorm_1.2.wav" id="6_7mycd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
 bg_color = Color(1, 0, 0, 1)
@@ -19,9 +19,6 @@ script = ExtResource("1_ig7tw")
 [node name="Planet" parent="." instance=ExtResource("2_lquwl")]
 
 [node name="Ship" parent="." instance=ExtResource("3_h2yge")]
-SPEED = 8
-Dash_Multiplier = 3.0
-dash_length = 0.2
 
 [node name="WaveSpawner" parent="." instance=ExtResource("5_lquwl")]
 
@@ -47,3 +44,5 @@ autoplay = true
 [node name="CowTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 10.0
+
+[connection signal="PlanetDeath" from="Planet" to="." method="_on_planet_planet_death"]
