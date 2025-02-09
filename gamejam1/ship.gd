@@ -55,6 +55,8 @@ func shoot() -> void:
 
 func _on_upgrade_requested(upgrade_id):
 	match upgrade_id:
+		"Upgrade1":
+			SPEED += 8
 		"Upgrade4":
 			print("You have cows!")
 			has_cows_unlocked = true
