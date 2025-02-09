@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwtdhyj50rg52"]
+[gd_scene load_steps=7 format=3 uid="uid://bvv3taol6bef2"]
 
-[ext_resource type="Script" uid="uid://uyll6hhup5ru" path="res://trail.gd" id="1_abn3g"]
-[ext_resource type="Texture2D" uid="uid://bbq1gg7ounwu8" path="res://Assets/UFO/PNG/laserBeige3.png" id="1_xjhlx"]
+[ext_resource type="Script" uid="uid://uyll6hhup5ru" path="res://trail.gd" id="1_n6014"]
+[ext_resource type="Texture2D" uid="uid://c58icwm85lf5g" path="res://Assets/UFO/PNG/laserPink3.png" id="2_n6014"]
 
 [sub_resource type="Animation" id="Animation_6s3rl"]
 length = 0.001
@@ -141,25 +141,25 @@ _data = {
 }
 
 [node name="Trail" type="Node2D"]
-script = ExtResource("1_abn3g")
+script = ExtResource("1_n6014")
 
 [node name="Trail1" type="Sprite2D" parent="."]
-texture = ExtResource("1_xjhlx")
+texture = ExtResource("2_n6014")
 
 [node name="Trail2" type="Sprite2D" parent="."]
 position = Vector2(0, 35)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_xjhlx")
+texture = ExtResource("2_n6014")
 
 [node name="Trail3" type="Sprite2D" parent="."]
 position = Vector2(0, 70)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_xjhlx")
+texture = ExtResource("2_n6014")
 
 [node name="Trail4" type="Sprite2D" parent="."]
 position = Vector2(0, 105)
 scale = Vector2(0.387097, 0.387097)
-texture = ExtResource("1_xjhlx")
+texture = ExtResource("2_n6014")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
