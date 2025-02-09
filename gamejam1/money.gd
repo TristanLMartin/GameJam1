@@ -6,7 +6,7 @@ func _ready() -> void:
 	%Timer.start()
 
 func _process(delta: float) -> void:
-	self.text = str(value)
+	self.text = str("$",value)
 
 
 
