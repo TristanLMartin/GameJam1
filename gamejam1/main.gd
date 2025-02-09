@@ -9,10 +9,7 @@ var game_state = game_states.START_MENU
 func _ready() -> void:
 	gold_label.text = str("Gold: 0")
 	get_tree().paused = true
-
-#func _process(delta: float) -> void:
-	#print(game_state)
-
+	
 func add_gold(gold) -> void:
 	gold_total += gold
 	gold_label.text = str('Gold: ', gold_total)
