@@ -1,12 +1,12 @@
 extends StaticBody2D
 
-var health = 1000
+@export var health = 100
 var multiplier = 1
 signal PlanetDeath
 signal PlanetCollision
 
-func take_damage(damage : int):
-	health -= damage * multiplier
+func take_damage(damage : int, delta):
+	health -= damage * multiplier * delta
 	var health_bar : ProgressBar = get_node('/root/Main/CanvasLayer/PlanetHealth')
 	health_bar.value = health
 	if health <= 0.0:
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		multiplier += current_multiplier
 	%MultiplierLabel.text = str(multiplier,  'x')
 	
-	take_damage(total_damage)
+	take_damage(total_damage, delta)
 
 
 var cows = 0
@@ -40,6 +40,7 @@ var cows = 0
 func _ready():
 	var ship = get_node("/root/Main/Ship")
 	ship.cow_signal.connect(_on_place_cows)
+	%PlanetHealth.max_value = health
 	
 func _on_place_cows(amount):
 	cows += amount
