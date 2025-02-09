@@ -1,3 +1,4 @@
+// courtesy of https://godotshaders.com/shader/stars-shader/
 shader_type canvas_item;
 
 uniform vec4 bg_color: source_color;

@@ -27,6 +27,7 @@ func _planet_collision(body):
 
 func on_hit() -> void:
 	health -= 1	
+	$AnimationPlayer.play("Flash")
 	if health <= 0:
 		wave_spawner.alien_death.emit()
 		main.add_gold(gold_value)
