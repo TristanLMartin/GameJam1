@@ -1073,7 +1073,7 @@ layout_mode = 0
 offset_left = 1353.0
 offset_top = 139.0
 offset_right = 1700.0
-offset_bottom = 877.0
+offset_bottom = 946.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_86krf")
 
 [node name="TextureRect" type="TextureRect" parent="Menus/StartMenu/PanelContainer2"]
@@ -1090,17 +1090,15 @@ offset_bottom = 704.0
 
 [node name="Label" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
 layout_mode = 2
-text = "Welcome to Moo to Main Control. You
+text = "This is Moo to Main Control. You
 are our last line of defense against the
 alien invasion.
-
 "
 
 [node name="Label2" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Goals"
-horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -1112,7 +1110,6 @@ Survive alien waves.
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Multiplier"
-horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -1125,20 +1122,29 @@ the more damage the aliens will do.
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Controls"
-horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "\"A\" - Rotate counterclockwise
 \"D\" - Rotate clockwise
-\"Space\" - Shoot
+\"Left-Click/Space\" - Shoot
 \"Tab\" - Upgrade Menu
 
 Unlockables:
 \"S\" - Place Guardian Cow
 \"E\" - Summon Satellite Defender
 \"Shift\" - Dash
-\"CTRL\" - Teleport"
+\"CTRL\" - Teleport
+"
+
+[node name="Label8" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Hint"
+
+[node name="Label9" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect/VBoxContainer"]
+layout_mode = 2
+text = "Buy upgrades often!"
 
 [node name="PanelContainer3" type="PanelContainer" parent="Menus/StartMenu"]
 layout_mode = 0
