@@ -26,6 +26,7 @@ func _on_button_settings_pressed() -> void:
 
 func _on_music_slider_value_changed(value: float) -> void:
 	main_music.volume_linear = value * value * 0.001
+	print(main_music.volume_linear)
 
 
 func _on_resolution_selected(index: int) -> void:
