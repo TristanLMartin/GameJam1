@@ -92,10 +92,12 @@ text = "Gold: 0"
 
 [node name="Wave" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-offset_left = 1596.0
-offset_top = 2.0
-offset_right = 1794.0
-offset_bottom = 71.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -198.0
+offset_bottom = 69.0
+grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
 text = "Wave: 1"
 
