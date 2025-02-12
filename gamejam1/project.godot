@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1800
 window/size/viewport_height=1000
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
 [input]
 
 Move_Left={

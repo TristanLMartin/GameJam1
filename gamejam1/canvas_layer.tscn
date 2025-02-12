@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=61 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c5at7nrofg7aw" path="res://Assets/Menus/UI Assets/Card X1/Card X2.png" id="26_lp2dk"]
 [ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
 [ext_resource type="AudioStream" uid="uid://duv052cw5bkd5" path="res://Audio/upgrade.wav" id="28_4piyb"]
+[ext_resource type="Script" uid="uid://bri0s07jg0ee6" path="res://settings_menu.gd" id="28_h8evs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -1072,13 +1073,30 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_gdnx8")
 text = "Start
 "
 
-[node name="Button" type="Button" parent="Menus/StartMenu/PanelContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Menus/StartMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="Button2" type="Button" parent="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer2"]
 custom_minimum_size = Vector2(264, 100)
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_6o4a1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_q0bbu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x0op4")
 text = "Quit"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Menus/StartMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="Button2" type="Button" parent="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(264, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_6o4a1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q0bbu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x0op4")
+text = "Settings
+"
 
 [node name="PanelContainer2" type="PanelContainer" parent="Menus/StartMenu"]
 layout_mode = 0
@@ -1180,6 +1198,74 @@ offset_bottom = 108.0
 theme_override_font_sizes/font_size = 60
 text = "Moo to Main Control"
 
+[node name="SettingsMenu" type="Control" parent="Menus"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("28_h8evs")
+
+[node name="ColorRect" type="ColorRect" parent="Menus/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.196078)
+
+[node name="PanelContainer" type="PanelContainer" parent="Menus/SettingsMenu"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 339.0
+offset_right = 788.0
+offset_bottom = 573.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lp2dk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/SettingsMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/SettingsMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menus/SettingsMenu/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="Menus/SettingsMenu/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="Menus/SettingsMenu"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 49.0
+offset_right = 1276.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4piyb")
+
+[node name="TextureRect" type="TextureRect" parent="Menus/SettingsMenu/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("27_apljm")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Menus/SettingsMenu/PanelContainer3/TextureRect"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 25.0
+offset_right = 772.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 60
+text = "Settings"
+horizontal_alignment = 1
+
 [node name="UpgradeNoise" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
@@ -1205,4 +1291,6 @@ stream = ExtResource("28_4piyb")
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer2/Upgrade16" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade16"]]
 [connection signal="pressed" from="Menus/UpgradeMenu/PanelContainer/MarginContainer/VBoxContainerALL/UpgradesSecondSection/MarginMiningFacility/VBoxContainer3/HBoxContainer3/Upgrade17" to="Menus/UpgradeMenu" method="_on_button_pressed" binds= ["Upgrade17"]]
 [connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer/Button" to="Menus/StartMenu" method="_on_button_pressed"]
-[connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/Button" to="Menus/StartMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer2/Button2" to="Menus/StartMenu" method="_on_quit_pressed"]
+[connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer3/Button2" to="Menus/StartMenu" method="_on_button_settings_pressed"]
+[connection signal="value_changed" from="Menus/SettingsMenu/PanelContainer/VBoxContainer/HBoxContainer/HSlider" to="Menus/SettingsMenu" method="_on_music_slider_value_changed"]

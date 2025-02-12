@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c87mw2867kkft"]
 
-[ext_resource type="Script" uid="uid://di5e03rdpyobg" path="res://cd_circle.gd" id="1_masbg"]
+[ext_resource type="Script" path="res://cd_circle.gd" id="1_masbg"]
 [ext_resource type="Texture2D" uid="uid://c2h807hnrjlbq" path="res://Assets/ProgressBar/CircularProgressBar.png" id="2_lhfoe"]
 
 [node name="CDCircle" type="Control"]

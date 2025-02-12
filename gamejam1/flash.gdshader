@@ -9,4 +9,3 @@ void fragment() {
 	COLOR = mix(original_color, flash_color, flash_pct);
 	COLOR.a *= original_color.a;
 }
-
