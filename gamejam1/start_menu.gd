@@ -22,7 +22,7 @@ func _on_quit_pressed():
 
 
 func _on_button_settings_pressed() -> void:
-	print("settings")
+	%HTTPRequest.request_leaderboard()
 
 func _on_music_slider_value_changed(value: float) -> void:
 	main_music.volume_linear = value * value * 0.001

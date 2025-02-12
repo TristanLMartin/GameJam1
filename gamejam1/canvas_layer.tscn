@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=61 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c5at7nrofg7aw" path="res://Assets/Menus/UI Assets/Card X1/Card X2.png" id="26_lp2dk"]
 [ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
 [ext_resource type="AudioStream" uid="uid://duv052cw5bkd5" path="res://Audio/upgrade.wav" id="28_4piyb"]
+[ext_resource type="Script" uid="uid://dtrmta3rridwr" path="res://http_request.gd" id="28_h8evs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -1103,8 +1104,7 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_6o4a1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_q0bbu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_x0op4")
-text = "Settings
-"
+text = "Leaderboard"
 
 [node name="PanelContainer2" type="PanelContainer" parent="Menus/StartMenu"]
 layout_mode = 0
@@ -1360,6 +1360,10 @@ popup/item_5/text = "1920×1080"
 popup/item_5/id = 5
 popup/item_6/text = "2560×1440"
 popup/item_6/id = 6
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Menus/StartMenu"]
+unique_name_in_owner = true
+script = ExtResource("28_h8evs")
 
 [node name="UpgradeNoise" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
