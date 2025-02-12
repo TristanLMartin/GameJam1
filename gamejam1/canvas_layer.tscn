@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=60 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
 [ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
@@ -28,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://c5at7nrofg7aw" path="res://Assets/Menus/UI Assets/Card X1/Card X2.png" id="26_lp2dk"]
 [ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
 [ext_resource type="AudioStream" uid="uid://duv052cw5bkd5" path="res://Audio/upgrade.wav" id="28_4piyb"]
-[ext_resource type="Script" uid="uid://bri0s07jg0ee6" path="res://settings_menu.gd" id="28_h8evs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -1176,6 +1175,76 @@ text = "Hint"
 layout_mode = 2
 text = "Buy upgrades often!"
 
+[node name="TextureRect2" type="TextureRect" parent="Menus/StartMenu/PanelContainer2"]
+layout_mode = 2
+texture = ExtResource("26_lp2dk")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/StartMenu/PanelContainer2/TextureRect2"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 31.0
+offset_right = 310.0
+offset_bottom = 704.0
+
+[node name="Label" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+text = "This is Moo to Main Control. You
+are our last line of defense against the
+alien invasion.
+"
+
+[node name="Label2" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Goals"
+
+[node name="Label3" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+text = "Keep Earth from dying.
+Survive alien waves.
+"
+
+[node name="Label4" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Multiplier"
+
+[node name="Label5" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+text = "Earth is split into four quadrants. The 
+more quadrants that are under attack, 
+the more damage the aliens will do.
+"
+
+[node name="Label6" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Controls"
+
+[node name="Label7" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+text = "\"A\" - Rotate counterclockwise
+\"D\" - Rotate clockwise
+\"Left-Click/Space\" - Shoot
+\"Tab\" - Upgrade Menu
+
+Unlockables:
+\"S\" - Place Guardian Cow
+\"E\" - Summon Satellite Defender
+\"Shift\" - Dash
+\"CTRL\" - Teleport
+"
+
+[node name="Label8" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Hint"
+
+[node name="Label9" type="Label" parent="Menus/StartMenu/PanelContainer2/TextureRect2/VBoxContainer"]
+layout_mode = 2
+text = "Buy upgrades often!"
+
 [node name="PanelContainer3" type="PanelContainer" parent="Menus/StartMenu"]
 layout_mode = 0
 offset_left = 337.0
@@ -1198,73 +1267,42 @@ offset_bottom = 108.0
 theme_override_font_sizes/font_size = 60
 text = "Moo to Main Control"
 
-[node name="SettingsMenu" type="Control" parent="Menus"]
-process_mode = 2
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("28_h8evs")
-
-[node name="ColorRect" type="ColorRect" parent="Menus/SettingsMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.196078)
-
-[node name="PanelContainer" type="PanelContainer" parent="Menus/SettingsMenu"]
+[node name="PanelContainer4" type="PanelContainer" parent="Menus/StartMenu"]
 layout_mode = 0
 offset_left = 342.0
-offset_top = 339.0
-offset_right = 788.0
-offset_bottom = 573.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_lp2dk")
+offset_top = 227.0
+offset_right = 858.0
+offset_bottom = 287.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/SettingsMenu/PanelContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/SettingsMenu/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menus/SettingsMenu/PanelContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Music Volume"
-
-[node name="HSlider" type="HSlider" parent="Menus/SettingsMenu/PanelContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-value = 50.0
-
-[node name="PanelContainer3" type="PanelContainer" parent="Menus/SettingsMenu"]
-layout_mode = 0
-offset_left = 337.0
-offset_top = 49.0
-offset_right = 1276.0
-offset_bottom = 180.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_4piyb")
-
-[node name="TextureRect" type="TextureRect" parent="Menus/SettingsMenu/PanelContainer3"]
+[node name="TextureRect2" type="TextureRect" parent="Menus/StartMenu/PanelContainer4"]
 layout_mode = 2
 texture = ExtResource("27_apljm")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Menus/SettingsMenu/PanelContainer3/TextureRect"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 25.0
-offset_right = 772.0
-offset_bottom = 108.0
-theme_override_font_sizes/font_size = 60
-text = "Settings"
-horizontal_alignment = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/StartMenu/PanelContainer4/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -14.0
+offset_right = 223.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Menus/StartMenu/PanelContainer4/TextureRect2/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="Menus/StartMenu/PanelContainer4/TextureRect2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
 
 [node name="UpgradeNoise" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -1293,4 +1331,4 @@ stream = ExtResource("28_4piyb")
 [connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer/Button" to="Menus/StartMenu" method="_on_button_pressed"]
 [connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer2/Button2" to="Menus/StartMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer3/Button2" to="Menus/StartMenu" method="_on_button_settings_pressed"]
-[connection signal="value_changed" from="Menus/SettingsMenu/PanelContainer/VBoxContainer/HBoxContainer/HSlider" to="Menus/SettingsMenu" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Menus/StartMenu/PanelContainer4/TextureRect2/HBoxContainer/HSlider" to="Menus/StartMenu" method="_on_music_slider_value_changed"]
