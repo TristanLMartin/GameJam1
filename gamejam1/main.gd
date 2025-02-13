@@ -1,6 +1,6 @@
 extends Node
 
-enum game_states {PAUSE_MENU, PLAYING, UPGRADING, START_MENU}
+enum game_states {PAUSE_MENU, PLAYING, UPGRADING, START_MENU, LEADERBOARD}
 var game_state = game_states.START_MENU
 
 @export var gold_total : int = 0

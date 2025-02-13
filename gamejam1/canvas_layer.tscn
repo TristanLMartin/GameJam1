@@ -1,7 +1,7 @@
-[gd_scene load_steps=61 format=3 uid="uid://e3eachgvj0rt"]
+[gd_scene load_steps=62 format=3 uid="uid://e3eachgvj0rt"]
 
 [ext_resource type="Script" uid="uid://tolqpj85dj2o" path="res://pause_menu.gd" id="1_37rai"]
-[ext_resource type="Shader" path="res://pause_menu.gdshader" id="1_tg4cr"]
+[ext_resource type="Shader" uid="uid://btb15qi25kuy" path="res://pause_menu.gdshader" id="1_tg4cr"]
 [ext_resource type="Script" uid="uid://o7kiwxx405tv" path="res://upgrade_menu.gd" id="3_37rai"]
 [ext_resource type="Texture2D" uid="uid://dde78gqcxje4x" path="res://Assets/Menus/UI Assets/Card X3/Card X5.png" id="4_0qrqu"]
 [ext_resource type="Texture2D" uid="uid://b5xqa1m6dxpsr" path="res://Assets/Menus/UI Assets/Button 1/Button Normal.png" id="5_5nuxi"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://b7p0mhr364xx7" path="res://Assets/Menus/UI Assets/Card X3/Card X6.png" id="27_apljm"]
 [ext_resource type="AudioStream" uid="uid://duv052cw5bkd5" path="res://Audio/upgrade.wav" id="28_4piyb"]
 [ext_resource type="Script" uid="uid://dtrmta3rridwr" path="res://http_request.gd" id="28_h8evs"]
+[ext_resource type="Script" uid="uid://bstm6x4l5hvvg" path="res://leaderboard.gd" id="29_54dv3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_37rai"]
 shader = ExtResource("1_tg4cr")
@@ -1033,6 +1034,7 @@ libraries = {
 }
 
 [node name="StartMenu" type="Control" parent="Menus"]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 1
 anchors_preset = 8
@@ -1365,6 +1367,81 @@ popup/item_6/id = 6
 unique_name_in_owner = true
 script = ExtResource("28_h8evs")
 
+[node name="Leaderboard" type="Control" parent="Menus"]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("29_54dv3")
+
+[node name="PanelContainer3" type="PanelContainer" parent="Menus/Leaderboard"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 49.0
+offset_right = 1276.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4piyb")
+
+[node name="TextureRect" type="TextureRect" parent="Menus/Leaderboard/PanelContainer3"]
+layout_mode = 2
+texture = ExtResource("27_apljm")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Menus/Leaderboard/PanelContainer3/TextureRect"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 25.0
+offset_right = 772.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 60
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="Rankings" type="VBoxContainer" parent="Menus/Leaderboard"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 382.0
+offset_top = 253.0
+offset_right = 1321.0
+offset_bottom = 915.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Leaderboard"]
+offset_left = 66.0
+offset_top = 261.0
+offset_right = 330.0
+offset_bottom = 659.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Menus/Leaderboard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="Button" type="Button" parent="Menus/Leaderboard/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(264, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_07c00")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_m85tg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gdnx8")
+text = "Main Menu"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Menus/Leaderboard/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="Button2" type="Button" parent="Menus/Leaderboard/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(264, 100)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxTexture_6o4a1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q0bbu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x0op4")
+text = "Reload"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Menus/Leaderboard"]
+
 [node name="UpgradeNoise" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 process_mode = 3
@@ -1394,3 +1471,6 @@ stream = ExtResource("28_4piyb")
 [connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer3/Button2" to="Menus/StartMenu" method="_on_button_settings_pressed"]
 [connection signal="value_changed" from="Menus/StartMenu/PanelContainer4/TextureRect2/HBoxContainer/HSlider" to="Menus/StartMenu" method="_on_music_slider_value_changed"]
 [connection signal="item_selected" from="Menus/StartMenu/PanelContainer5/TextureRect2/HBoxContainer/OptionButton" to="Menus/StartMenu" method="_on_resolution_selected"]
+[connection signal="pressed" from="Menus/Leaderboard/VBoxContainer/MarginContainer/Button" to="Menus/Leaderboard" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Menus/Leaderboard/VBoxContainer/MarginContainer2/Button2" to="Menus/Leaderboard" method="_on_reload_button_pressed"]
+[connection signal="screen_entered" from="Menus/Leaderboard/VisibleOnScreenNotifier2D" to="Menus/Leaderboard" method="_on_visible_on_screen_notifier_2d_screen_entered"]

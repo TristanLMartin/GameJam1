@@ -1,13 +1,16 @@
 extends HTTPRequest
 
+var leaderboard_rankings = []
+
 func request_leaderboard()-> void:
 	# Create an HTTP request node and connect its completion signal.
+	print("huh")
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_completed)
 
 	# Perform a GET request. The URL below returns JSON as of writing.
-	var error = http_request.request("http://127.0.0.1:5000")
+	var error = http_request.request("http://129.146.218.51:5000")
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 
@@ -25,5 +28,6 @@ func _http_request_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	print(json.get_data()[0])
+	leaderboard_rankings = response
 	for row in response:
 		print(row)
