@@ -1,6 +1,9 @@
 extends StaticBody2D
 
 @onready var upgrade_menu = get_node("/root/Main/CanvasLayer/Menus/UpgradeMenu")
+@onready var http_request = get_node("/root/Main/CanvasLayer/Menus/StartMenu/HTTPRequest")
+@onready var wave_spawner = get_node("/root/Main/WaveSpawner")
+@onready var start_menu = get_node("/root/Main/CanvasLayer/Menus/StartMenu")
 @export var health = 100
 @onready var healthLabel = get_node("/root/Main/CanvasLayer/PlanetHealth/HealthLabel")
 var multiplier = 1
@@ -9,6 +12,7 @@ var multiplier_resistance = 0
 signal PlanetDeath
 signal PlanetCollision
 var cow_quadrants = [0, 0, 0, 0]
+var died = false
 @onready var cow_icons = [%Cow1, %Cow2, %Cow3, %Cow4]
 @onready var cow_timers = [%QuadrantTimer1, %QuadrantTimer2, %QuadrantTimer3, %QuadrantTimer4]
 
@@ -16,8 +20,13 @@ func take_damage(damage : int, delta):
 	health -= damage * multiplier * delta
 	var health_bar : ProgressBar = get_node('/root/Main/CanvasLayer/PlanetHealth')
 	health_bar.value = health
-	if health <= 0.0:
+	if health <= 0.0 and not died:
+		died = true
 		print("We're dead!")
+		print('username: ', start_menu.username, 'wave: ', wave_spawner.wave_number)
+		print(http_request)
+		print(health)
+		await http_request.update_leaderboard(start_menu.username, wave_spawner.wave_number)
 		PlanetDeath.emit()
 	
 

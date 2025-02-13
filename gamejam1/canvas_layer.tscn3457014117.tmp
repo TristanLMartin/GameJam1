@@ -1363,43 +1363,6 @@ popup/item_5/id = 5
 popup/item_6/text = "2560×1440"
 popup/item_6/id = 6
 
-[node name="PanelContainer6" type="PanelContainer" parent="Menus/StartMenu"]
-layout_mode = 0
-offset_left = 981.0
-offset_top = 316.0
-offset_right = 1257.0
-offset_bottom = 376.0
-
-[node name="TextureRect2" type="TextureRect" parent="Menus/StartMenu/PanelContainer6"]
-layout_mode = 2
-texture = ExtResource("27_apljm")
-expand_mode = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/StartMenu/PanelContainer6/TextureRect2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -59.5
-offset_top = -20.0
-offset_right = 59.5
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Menus/StartMenu/PanelContainer6/TextureRect2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "name"
-
-[node name="TextEdit" type="LineEdit" parent="Menus/StartMenu/PanelContainer6/TextureRect2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 20
-placeholder_text = "solaire"
-
 [node name="HTTPRequest" type="HTTPRequest" parent="Menus/StartMenu"]
 unique_name_in_owner = true
 script = ExtResource("28_h8evs")
@@ -1508,7 +1471,6 @@ stream = ExtResource("28_4piyb")
 [connection signal="pressed" from="Menus/StartMenu/PanelContainer/VBoxContainer/MarginContainer3/Button2" to="Menus/StartMenu" method="_on_button_settings_pressed"]
 [connection signal="value_changed" from="Menus/StartMenu/PanelContainer4/TextureRect2/HBoxContainer/HSlider" to="Menus/StartMenu" method="_on_music_slider_value_changed"]
 [connection signal="item_selected" from="Menus/StartMenu/PanelContainer5/TextureRect2/HBoxContainer/OptionButton" to="Menus/StartMenu" method="_on_resolution_selected"]
-[connection signal="text_submitted" from="Menus/StartMenu/PanelContainer6/TextureRect2/HBoxContainer/TextEdit" to="Menus/StartMenu" method="_on_text_edit_text_submitted"]
 [connection signal="pressed" from="Menus/Leaderboard/VBoxContainer/MarginContainer/Button" to="Menus/Leaderboard" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Menus/Leaderboard/VBoxContainer/MarginContainer2/Button2" to="Menus/Leaderboard" method="_on_reload_button_pressed"]
 [connection signal="screen_entered" from="Menus/Leaderboard/VisibleOnScreenNotifier2D" to="Menus/Leaderboard" method="_on_visible_on_screen_notifier_2d_screen_entered"]

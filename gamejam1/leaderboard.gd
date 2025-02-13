@@ -26,9 +26,13 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 func draw_rankings() -> void:
 	for child in %Rankings.get_children():
 		child.queue_free()
+	if %HTTPRequest.leaderboard_rankings == [] or %HTTPRequest.leaderboard_rankings == null:
+		var label = Label.new()
+		label.text = 'issue with rankings'
+		%Rankings.add_child(label)
+		return
 	for row in %HTTPRequest.leaderboard_rankings:
 		var label = Label.new()
-		print("new label", row)
 		label.text = row[0] + ": " + str(row[1])
 		%Rankings.add_child(label)
 		
